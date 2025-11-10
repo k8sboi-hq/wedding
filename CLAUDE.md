@@ -64,19 +64,39 @@ sudo caddy validate --config /etc/caddy/Caddyfile  # Validate config
 
 ## Key Configuration Points
 
+### SEO & Social Media Meta Tags
+
+The site includes comprehensive meta tags for social media sharing:
+- **Open Graph tags** (lines 15-26) - For Facebook, Messenger, WhatsApp
+- **Twitter Cards** (lines 28-33) - For Twitter/X sharing
+- **Telegram meta** (line 36) - For Telegram sharing
+- **Standard SEO meta** (lines 7-13, 39-41)
+
+**IMPORTANT**: Before deploying, update:
+1. Replace `https://your-domain.com/` with your actual domain (lines 17, 20, 30, 33)
+2. Create an Open Graph image (`og-image.jpg`, 1200x630px) for social media previews
+3. Update Telegram channel if applicable (line 36)
+
 ### Wedding Date/Time
 
 Wedding date: **Sunday, January 25, 2026 at 18:00 ICT**
-- Display date: lines 403, 452, 533
-- Countdown timer: line 540
+- Display date: lines 439, 488, 569
+- Countdown timer: line 579
 
 ### Couple Photo
 
-Replace the placeholder SVG (line 397-400):
+Replace the placeholder SVG (line 468-471):
 ```javascript
-// Uncomment line 575 and update path
+// Uncomment line 613 and update path
 document.getElementById('couplePhoto').src = 'couple-photo.jpg';
 ```
+
+### Open Graph Image for Social Sharing
+
+Create a preview image for social media sharing:
+1. Create `og-image.jpg` (1200x630px) with couple photo and wedding details
+2. Upload to `/var/www/wedding/og-image.jpg`
+3. Update meta tag URLs (lines 20, 33) to use actual domain
 
 ### Tally Form Integration
 

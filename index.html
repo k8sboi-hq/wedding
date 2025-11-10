@@ -1,0 +1,625 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Khoa & Sương's Wedding</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Cormorant+Garamond:wght@300;400;500&family=Montserrat:wght@300;400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      :root {
+        --primary-color: #2c5f4f;
+        --secondary-color: #8b7355;
+        --accent-color: #d4a574;
+        --text-dark: #2c2c2c;
+        --text-light: #666;
+        --bg-light: #faf9f7;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        color: var(--text-dark);
+        line-height: 1.6;
+        background-color: var(--bg-light);
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-family: "Playfair Display", serif;
+      }
+
+      .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 0 20px;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        background:
+          linear-gradient(
+            135deg,
+            rgba(255, 240, 245, 0.95),
+            rgba(255, 228, 225, 0.95),
+            rgba(255, 245, 238, 0.95)
+          ),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="hearts" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M50 30 C50 20, 40 15, 35 20 C30 15, 25 20, 25 25 C25 35, 35 40, 50 50 C65 40, 75 35, 75 25 C75 20, 70 15, 65 20 C60 15, 50 20, 50 30 Z" fill="%23ff9eb3" opacity="0.15"/></pattern></defs><rect fill="%23fff5f7" width="1200" height="600"/><rect fill="url(%23hearts)" width="1200" height="600"/><circle cx="150" cy="100" r="80" fill="%23ffd4d9" opacity="0.2"/><circle cx="1000" cy="150" r="100" fill="%23ffe4e1" opacity="0.3"/><circle cx="300" cy="450" r="60" fill="%23ffd4d9" opacity="0.2"/><circle cx="900" cy="500" r="90" fill="%23ffe4e1" opacity="0.25"/><path d="M200 200 Q250 150 300 200" stroke="%23ffb6c1" stroke-width="2" fill="none" opacity="0.3"/><path d="M800 400 Q850 350 900 400" stroke="%23ffb6c1" stroke-width="2" fill="none" opacity="0.3"/></svg>');
+        background-size: cover;
+        background-position: center;
+        position: relative;
+        padding: 40px 20px;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "💕";
+        position: absolute;
+        font-size: 3rem;
+        opacity: 0.15;
+        top: 10%;
+        left: 15%;
+        animation: float 6s ease-in-out infinite;
+      }
+
+      .hero::after {
+        content: "💐";
+        position: absolute;
+        font-size: 2.5rem;
+        opacity: 0.15;
+        top: 20%;
+        right: 10%;
+        animation: float 8s ease-in-out infinite reverse;
+      }
+
+      @keyframes float {
+        0%, 100% { transform: translateY(0px); }
+        50% { transform: translateY(-20px); }
+      }
+
+      .hero-content {
+        z-index: 2;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .couple-photo {
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        border: 5px solid rgba(255, 255, 255, 0.9);
+        margin-bottom: 30px;
+        object-fit: cover;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        animation: fadeIn 1.5s ease-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      .wedding-date {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.2rem;
+        color: #b8545f;
+        margin-bottom: 15px;
+        letter-spacing: 2px;
+        font-weight: 600;
+      }
+
+      .couple-names {
+        font-size: 3.5rem;
+        color: #8b3a62;
+        margin-bottom: 20px;
+        font-weight: 600;
+        line-height: 1.2;
+        text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
+      }
+
+      .ampersand {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 2.5rem;
+        margin: 0 10px;
+        color: #d4788d;
+      }
+
+      .tagline {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.3rem;
+        color: #9d5068;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        font-style: italic;
+      }
+
+      /* Countdown Section */
+      .countdown-section {
+        background: white;
+        padding: 60px 20px;
+        text-align: center;
+      }
+
+      .countdown-title {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 30px;
+      }
+
+      .countdown {
+        display: flex;
+        justify-content: center;
+        gap: 30px;
+        flex-wrap: wrap;
+      }
+
+      .countdown-item {
+        background: var(--bg-light);
+        border-radius: 10px;
+        padding: 20px 30px;
+        min-width: 100px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .countdown-number {
+        font-size: 3rem;
+        font-weight: 600;
+        color: var(--primary-color);
+        font-family: "Playfair Display", serif;
+      }
+
+      .countdown-label {
+        font-size: 0.9rem;
+        color: var(--text-light);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        margin-top: 5px;
+      }
+
+      /* Details Section */
+      .details-section {
+        background: var(--bg-light);
+        padding: 80px 20px;
+      }
+
+      .section-title {
+        font-size: 2.5rem;
+        text-align: center;
+        color: var(--primary-color);
+        margin-bottom: 50px;
+      }
+
+      .details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 40px;
+        margin-bottom: 50px;
+      }
+
+      .detail-card {
+        background: white;
+        padding: 40px;
+        border-radius: 15px;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        text-align: center;
+      }
+
+      .detail-icon {
+        font-size: 2.5rem;
+        margin-bottom: 20px;
+      }
+
+      .detail-card h3 {
+        font-size: 1.5rem;
+        color: var(--primary-color);
+        margin-bottom: 15px;
+      }
+
+      .detail-card p {
+        color: var(--text-light);
+        line-height: 1.8;
+      }
+
+      .venue-name {
+        font-weight: 600;
+        color: var(--text-dark);
+        font-size: 1.1rem;
+        margin-bottom: 10px;
+      }
+
+      /* Map Section */
+      .map-section {
+        background: white;
+        padding: 80px 20px;
+      }
+
+      .map-container {
+        border-radius: 15px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        margin-bottom: 30px;
+      }
+
+      .map-container iframe {
+        width: 100%;
+        height: 450px;
+        border: none;
+      }
+
+      .map-link {
+        text-align: center;
+      }
+
+      .btn-map {
+        display: inline-block;
+        padding: 15px 40px;
+        background: var(--primary-color);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        box-shadow: 0 4px 15px rgba(44, 95, 79, 0.3);
+      }
+
+      .btn-map:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+        box-shadow: 0 6px 20px rgba(44, 95, 79, 0.4);
+      }
+
+      /* RSVP Section */
+      .rsvp-section {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        padding: 80px 20px;
+        color: white;
+        text-align: center;
+      }
+
+      .rsvp-section .section-title {
+        color: white;
+      }
+
+      .rsvp-message {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1.3rem;
+        max-width: 600px;
+        margin: 0 auto 40px;
+        line-height: 1.8;
+      }
+
+      .tally-container {
+        background: white;
+        border-radius: 15px;
+        padding: 40px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .tally-placeholder {
+        color: var(--text-dark);
+        padding: 60px 20px;
+      }
+
+      .tally-placeholder h3 {
+        color: var(--primary-color);
+        margin-bottom: 20px;
+        font-size: 1.5rem;
+      }
+
+      .tally-placeholder p {
+        color: var(--text-light);
+        margin-bottom: 30px;
+      }
+
+      .tally-placeholder code {
+        display: block;
+        background: var(--bg-light);
+        padding: 20px;
+        border-radius: 8px;
+        font-family: monospace;
+        font-size: 0.9rem;
+        color: var(--text-dark);
+        text-align: left;
+        overflow-x: auto;
+      }
+
+      /* Footer */
+      .footer {
+        background: var(--text-dark);
+        color: rgba(255, 255, 255, 0.7);
+        text-align: center;
+        padding: 40px 20px;
+      }
+
+      .footer-names {
+        font-family: "Playfair Display", serif;
+        font-size: 1.5rem;
+        color: white;
+        margin-bottom: 15px;
+      }
+
+      /* Responsive */
+      @media (max-width: 768px) {
+        .couple-names {
+          font-size: 2.5rem;
+        }
+
+        .countdown {
+          gap: 15px;
+        }
+
+        .countdown-item {
+          padding: 15px 20px;
+          min-width: 80px;
+        }
+
+        .countdown-number {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .details-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .couple-names {
+          font-size: 2rem;
+        }
+
+        .ampersand {
+          font-size: 1.8rem;
+        }
+
+        .tally-container {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div style="position: absolute; top: 15%; left: 5%; font-size: 2rem; opacity: 0.2; animation: float 7s ease-in-out infinite;">❤️</div>
+      <div style="position: absolute; top: 70%; left: 10%; font-size: 1.8rem; opacity: 0.2; animation: float 9s ease-in-out infinite reverse;">💖</div>
+      <div style="position: absolute; top: 25%; right: 8%; font-size: 2.2rem; opacity: 0.2; animation: float 8s ease-in-out infinite;">🌸</div>
+      <div style="position: absolute; bottom: 15%; right: 12%; font-size: 2rem; opacity: 0.2; animation: float 10s ease-in-out infinite reverse;">💗</div>
+      <div style="position: absolute; top: 50%; left: 8%; font-size: 1.5rem; opacity: 0.2; animation: float 6s ease-in-out infinite;">🌹</div>
+      <div style="position: absolute; bottom: 25%; right: 5%; font-size: 1.8rem; opacity: 0.2; animation: float 7s ease-in-out infinite reverse;">💝</div>
+
+      <div class="hero-content">
+        <img
+          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='95' fill='%23f0f0f0'/%3E%3Ctext x='100' y='115' font-size='80' text-anchor='middle' fill='%23666' font-family='Arial'%3E💑%3C/text%3E%3C/svg%3E"
+          alt="Huỳnh Đăng Khoa & Lưu Nguyễn Hồng Sương"
+          class="couple-photo"
+          id="couplePhoto"
+        />
+
+        <div class="wedding-date">SUNDAY, JANUARY 25, 2026</div>
+
+        <h1 class="couple-names">
+          <span style="font-family: &quot;Cormorant Garamond&quot;, serif"
+            >Huỳnh Đăng Khoa</span
+          >
+          <span style="font-size: 1.5rem; display: block; margin-top: 5px"
+            >(Daniel)</span
+          >
+          <span class="ampersand">&</span>
+          <span style="font-family: &quot;Cormorant Garamond&quot;, serif"
+            >Lưu Nguyễn Hồng Sương</span
+          >
+          <span style="font-size: 1.5rem; display: block; margin-top: 5px"
+            >(Rachel)</span
+          >
+        </h1>
+
+        <p class="tagline">
+          Our joy will be more complete with your presence on our special day
+        </p>
+      </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="countdown-section">
+      <div class="container">
+        <h2 class="countdown-title">Counting Down to Our Big Day</h2>
+        <div class="countdown" id="countdown">
+          <div class="countdown-item">
+            <div class="countdown-number" id="days">--</div>
+            <div class="countdown-label">Days</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="hours">--</div>
+            <div class="countdown-label">Hours</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="minutes">--</div>
+            <div class="countdown-label">Minutes</div>
+          </div>
+          <div class="countdown-item">
+            <div class="countdown-number" id="seconds">--</div>
+            <div class="countdown-label">Seconds</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Details Section -->
+    <section class="details-section">
+      <div class="container">
+        <h2 class="section-title">Wedding Details</h2>
+        <div class="details-grid">
+          <div class="detail-card">
+            <div class="detail-icon">📅</div>
+            <h3>When</h3>
+            <p class="venue-name">Sunday, January 25, 2026</p>
+            <p>
+              Reception: 18:00 - 21:00<br />
+              Dinner: 19:00 onwards
+            </p>
+          </div>
+          <div class="detail-card">
+            <div class="detail-icon">📍</div>
+            <h3>Where</h3>
+            <p class="venue-name">Garden Plaza Saigon</p>
+            <p>
+              170 Nguyen Van Troi Street,<br />
+              Ward 8, Phu Nhuan District,<br />
+              Ho Chi Minh City, Vietnam
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Map Section -->
+    <section class="map-section">
+      <div class="container">
+        <h2 class="section-title">Location</h2>
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7838.317861104735!2d106.66538017690544!3d10.799136889351084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528d5ff3c8957%3A0x8b4929466e979253!2sGarden%20Plaza%20Saigon%20(Formerly%20PARKROYAL%20Saigon)!5e0!3m2!1sen!2sus!4v1762786362932!5m2!1sen!2sus"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          >
+          </iframe>
+        </div>
+        <div class="map-link">
+          <a
+            href="https://maps.app.goo.gl/Edi1Vw3ed3ziP7bJ7"
+            target="_blank"
+            class="btn-map"
+          >
+            Open in Google Maps
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- RSVP Section -->
+    <section class="rsvp-section">
+      <div class="container">
+        <h2 class="section-title">RSVP</h2>
+        <p class="rsvp-message">
+          We would be honored by your presence at our wedding celebration.
+          Please let us know if you can join us!
+        </p>
+        <div class="tally-container">
+          <div class="tally-placeholder">
+            <h3>📝 Tally Form Integration</h3>
+            <p>Replace this section with your Tally form embed code</p>
+            <code
+              >&lt;!-- Replace this comment with your Tally embed code --&gt;
+              &lt;iframe data-tally-src="https://tally.so/embed/YOUR-FORM-ID"
+              width="100%" height="500" frameborder="0" marginheight="0"
+              marginwidth="0" title="RSVP Form" &gt;&lt;/iframe&gt;
+              &lt;script&gt; var
+              d=document,w="https://tally.so/widgets/embed.js",
+              v=function(){"undefined"!=typeof Tally?
+              Tally.loadEmbeds():d.querySelectorAll("iframe[data-tally-src]:not([src])")
+              .forEach((function(e){e.src=e.dataset.tallySrc}))};
+              if("undefined"!=typeof Tally)v(); else
+              if(d.querySelector('script[src="'+w+'"]')==null){ var
+              s=d.createElement("script");s.src=w,s.onload=v,
+              s.onerror=v,d.body.appendChild(s); } &lt;/script&gt;</code
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-names">Huỳnh Đăng Khoa (Daniel) & Lưu Nguyễn Hồng Sương (Rachel)</div>
+        <p>January 25, 2026</p>
+      </div>
+    </footer>
+
+    <script>
+      // Countdown Timer
+      function updateCountdown() {
+        // Wedding date: January 25, 2026 at 18:00 Vietnam time (UTC+7)
+        // Using UTC to avoid timezone parsing issues across browsers
+        // Vietnam time 18:00 = UTC 11:00
+        const weddingDate = new Date(Date.UTC(2026, 0, 25, 11, 0, 0)).getTime();
+        const now = new Date().getTime();
+        const distance = weddingDate - now;
+
+        if (distance < 0) {
+          document.getElementById("countdown").innerHTML =
+            '<p style="font-size: 2rem; color: var(--primary-color);">We are married! 💑</p>';
+          return;
+        }
+
+        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        const hours = Math.floor(
+          (distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+        );
+        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        document.getElementById("days").textContent = days;
+        document.getElementById("hours").textContent = hours
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("minutes").textContent = minutes
+          .toString()
+          .padStart(2, "0");
+        document.getElementById("seconds").textContent = seconds
+          .toString()
+          .padStart(2, "0");
+      }
+
+      // Update countdown every second
+      updateCountdown();
+      setInterval(updateCountdown, 1000);
+
+      // Replace placeholder couple photo with actual image
+      // Uncomment and update the path to your photo
+      // document.getElementById('couplePhoto').src = 'path/to/your-couple-photo.jpg';
+    </script>
+  </body>
+</html>

@@ -8,7 +8,7 @@ This is a static wedding invitation website for Daniel & Lưu Nguyễn Hồng S�
 
 ## Technology Stack
 
-- **Pure HTML/CSS/JavaScript** - No build tools or frameworks
+- **Pure HTML/CSS/JavaScript** - No build tools or frameworks, can includes Jquery as well
 - **Caddy** - Web server with automatic HTTPS
 - **Google Fonts** - Playfair Display, Cormorant Garamond, Montserrat
 - **Tally.so** - External form service for RSVP (integration pending)

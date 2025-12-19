@@ -17,7 +17,7 @@
     <meta property="og:url" content="https://your-domain.com/" />
     <meta property="og:title" content="Khoa & Sương's Wedding - January 20, 2026" />
     <meta property="og:description" content="Join us for the wedding celebration of Huỳnh Đăng Khoa (Daniel) and Lưu Nguyễn Hồng Sương (Rachel) on January 20, 2026. Guest celebrations on January 18 & 25. RSVP today!" />
-    <meta property="og:image" content="https://your-domain.com/og-image.jpg" />
+    <meta property="og:image" content="og_image.jpg" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:image:alt" content="Khoa & Sương's Wedding Invitation" />
@@ -58,12 +58,14 @@
       }
 
       :root {
-        --primary-color: #2c5f4f;
-        --secondary-color: #8b7355;
-        --accent-color: #d4a574;
+        --primary-color: #dc143c;
+        --secondary-color: #c41e3a;
+        --accent-color: #ffd700;
         --text-dark: #2c2c2c;
         --text-light: #666;
-        --bg-light: #faf9f7;
+        --bg-light: #fef9f3;
+        --gold: #ffd700;
+        --red: #dc143c;
       }
 
       body {
@@ -96,11 +98,11 @@
         background:
           linear-gradient(
             135deg,
-            rgba(255, 240, 245, 0.95),
-            rgba(255, 228, 225, 0.95),
-            rgba(255, 245, 238, 0.95)
+            rgba(254, 249, 243, 0.95),
+            rgba(255, 245, 235, 0.95),
+            rgba(254, 249, 243, 0.95)
           ),
-          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="hearts" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M50 30 C50 20, 40 15, 35 20 C30 15, 25 20, 25 25 C25 35, 35 40, 50 50 C65 40, 75 35, 75 25 C75 20, 70 15, 65 20 C60 15, 50 20, 50 30 Z" fill="%23ff9eb3" opacity="0.15"/></pattern></defs><rect fill="%23fff5f7" width="1200" height="600"/><rect fill="url(%23hearts)" width="1200" height="600"/><circle cx="150" cy="100" r="80" fill="%23ffd4d9" opacity="0.2"/><circle cx="1000" cy="150" r="100" fill="%23ffe4e1" opacity="0.3"/><circle cx="300" cy="450" r="60" fill="%23ffd4d9" opacity="0.2"/><circle cx="900" cy="500" r="90" fill="%23ffe4e1" opacity="0.25"/><path d="M200 200 Q250 150 300 200" stroke="%23ffb6c1" stroke-width="2" fill="none" opacity="0.3"/><path d="M800 400 Q850 350 900 400" stroke="%23ffb6c1" stroke-width="2" fill="none" opacity="0.3"/></svg>');
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="lotus-hero" x="0" y="0" width="150" height="150" patternUnits="userSpaceOnUse"><g opacity="0.06"><circle cx="75" cy="75" r="12" fill="%23dc143c"/><ellipse cx="75" cy="63" rx="6" ry="16" fill="%23dc143c"/><ellipse cx="63" cy="69" rx="6" ry="16" transform="rotate(-30 63 69)" fill="%23dc143c"/><ellipse cx="87" cy="69" rx="6" ry="16" transform="rotate(30 87 69)" fill="%23dc143c"/></g></pattern><pattern id="clouds-hero" x="0" y="0" width="200" height="100" patternUnits="userSpaceOnUse"><path d="M50 60 Q35 45 50 40 Q65 35 75 40 Q85 35 95 45 Q90 65 75 65 Z" fill="%23ffd700" opacity="0.05"/></pattern></defs><rect fill="%23fef9f3" width="1200" height="600"/><rect fill="url(%23lotus-hero)" width="1200" height="600"/><rect fill="url(%23clouds-hero)" width="1200" height="600"/><circle cx="200" cy="150" r="80" fill="%23ffd700" opacity="0.08"/><circle cx="1000" cy="200" r="100" fill="%23dc143c" opacity="0.05"/><circle cx="300" cy="500" r="60" fill="%23ffd700" opacity="0.08"/><circle cx="900" cy="450" r="90" fill="%23dc143c" opacity="0.05"/></svg>');
         background-size: cover;
         background-position: center;
         position: relative;
@@ -109,22 +111,26 @@
       }
 
       .hero::before {
-        content: "💕";
+        content: "囍";
         position: absolute;
-        font-size: 3rem;
-        opacity: 0.15;
+        font-size: 4rem;
+        opacity: 0.1;
+        color: var(--red);
         top: 10%;
-        left: 15%;
+        left: 10%;
+        font-weight: bold;
         animation: float 6s ease-in-out infinite;
       }
 
       .hero::after {
-        content: "💐";
+        content: "囍";
         position: absolute;
-        font-size: 2.5rem;
-        opacity: 0.15;
-        top: 20%;
+        font-size: 4rem;
+        opacity: 0.1;
+        color: var(--gold);
+        top: 15%;
         right: 10%;
+        font-weight: bold;
         animation: float 8s ease-in-out infinite reverse;
       }
 
@@ -150,14 +156,17 @@
       }
 
       .couple-photo {
-        width: 200px;
-        height: 200px;
+        width: 350px;
+        height: 350px;
         border-radius: 50%;
-        border: 5px solid rgba(255, 255, 255, 0.9);
-        margin-bottom: 30px;
+        border: 8px solid var(--gold);
+        margin-bottom: 40px;
         object-fit: cover;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        box-shadow: 0 15px 50px rgba(220, 20, 60, 0.5), 0 0 0 15px rgba(255, 215, 0, 0.3);
         animation: fadeIn 1.5s ease-out;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
       }
 
       @keyframes fadeIn {
@@ -172,7 +181,7 @@
       .wedding-date {
         font-family: "Cormorant Garamond", serif;
         font-size: 1.2rem;
-        color: #b8545f;
+        color: var(--red);
         margin-bottom: 15px;
         letter-spacing: 2px;
         font-weight: 600;
@@ -180,24 +189,24 @@
 
       .couple-names {
         font-size: 3.5rem;
-        color: #8b3a62;
+        color: var(--red);
         margin-bottom: 20px;
         font-weight: 600;
         line-height: 1.2;
-        text-shadow: 0 2px 8px rgba(255, 255, 255, 0.8);
+        text-shadow: 0 2px 8px rgba(255, 215, 0, 0.3);
       }
 
       .ampersand {
         font-family: "Cormorant Garamond", serif;
         font-size: 2.5rem;
         margin: 0 10px;
-        color: #d4788d;
+        color: var(--gold);
       }
 
       .tagline {
         font-family: "Cormorant Garamond", serif;
         font-size: 1.3rem;
-        color: #9d5068;
+        color: var(--text-dark);
         max-width: 600px;
         margin: 0 auto 40px;
         font-style: italic;
@@ -205,15 +214,38 @@
 
       /* Countdown Section */
       .countdown-section {
-        background: white;
+        background:
+          linear-gradient(135deg, rgba(220, 20, 60, 0.02), rgba(255, 215, 0, 0.05), rgba(220, 20, 60, 0.02)),
+          white;
         padding: 60px 20px;
         text-align: center;
+        position: relative;
+      }
+
+      .countdown-section::before {
+        content: "🏮";
+        position: absolute;
+        top: 20px;
+        left: 5%;
+        font-size: 2rem;
+        opacity: 0.15;
+      }
+
+      .countdown-section::after {
+        content: "🏮";
+        position: absolute;
+        top: 20px;
+        right: 5%;
+        font-size: 2rem;
+        opacity: 0.15;
       }
 
       .countdown-title {
         font-size: 2rem;
         color: var(--primary-color);
         margin-bottom: 30px;
+        position: relative;
+        z-index: 1;
       }
 
       .countdown {
@@ -224,11 +256,14 @@
       }
 
       .countdown-item {
-        background: var(--bg-light);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(254, 249, 243, 0.9));
         border-radius: 10px;
         padding: 20px 30px;
         min-width: 100px;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        box-shadow: 0 4px 15px rgba(220, 20, 60, 0.15);
+        border: 2px solid rgba(255, 215, 0, 0.3);
+        position: relative;
+        z-index: 1;
       }
 
       .countdown-number {
@@ -236,6 +271,7 @@
         font-weight: 600;
         color: var(--primary-color);
         font-family: "Playfair Display", serif;
+        text-shadow: 0 2px 4px rgba(255, 215, 0, 0.2);
       }
 
       .countdown-label {
@@ -248,8 +284,33 @@
 
       /* Details Section */
       .details-section {
-        background: var(--bg-light);
+        background:
+          linear-gradient(135deg,
+            rgba(254, 249, 243, 0.8),
+            rgba(255, 245, 235, 0.8),
+            rgba(254, 249, 243, 0.8)
+          ),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="bamboo" x="0" y="0" width="100" height="200" patternUnits="userSpaceOnUse"><line x1="50" y1="0" x2="50" y2="200" stroke="%23ffd700" stroke-width="3" opacity="0.05"/><circle cx="50" cy="50" r="8" fill="%23ffd700" opacity="0.05"/><circle cx="50" cy="150" r="8" fill="%23ffd700" opacity="0.05"/></pattern></defs><rect fill="%23fef9f3" width="1200" height="800"/><rect fill="url(%23bamboo)" width="1200" height="800"/></svg>');
         padding: 80px 20px;
+        position: relative;
+      }
+
+      .details-section::before {
+        content: "💐";
+        position: absolute;
+        top: 30px;
+        left: 8%;
+        font-size: 2.5rem;
+        opacity: 0.1;
+      }
+
+      .details-section::after {
+        content: "💐";
+        position: absolute;
+        bottom: 30px;
+        right: 8%;
+        font-size: 2.5rem;
+        opacity: 0.1;
       }
 
       .section-title {
@@ -257,6 +318,8 @@
         text-align: center;
         color: var(--primary-color);
         margin-bottom: 50px;
+        position: relative;
+        z-index: 1;
       }
 
       .details-grid {
@@ -267,11 +330,21 @@
       }
 
       .detail-card {
-        background: white;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(254, 249, 243, 0.95));
         padding: 40px;
         border-radius: 15px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        box-shadow: 0 5px 20px rgba(220, 20, 60, 0.12);
         text-align: center;
+        border: 2px solid rgba(255, 215, 0, 0.2);
+        position: relative;
+        z-index: 1;
+        transition: all 0.3s ease;
+      }
+
+      .detail-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 30px rgba(220, 20, 60, 0.2);
+        border-color: rgba(255, 215, 0, 0.4);
       }
 
       .detail-icon {
@@ -299,15 +372,39 @@
 
       /* Map Section */
       .map-section {
-        background: white;
+        background:
+          linear-gradient(135deg, rgba(255, 255, 255, 0.95), rgba(254, 249, 243, 0.9)),
+          white;
         padding: 80px 20px;
+        position: relative;
+      }
+
+      .map-section::before {
+        content: "🧧";
+        position: absolute;
+        top: 50px;
+        left: 5%;
+        font-size: 2.5rem;
+        opacity: 0.1;
+      }
+
+      .map-section::after {
+        content: "🧧";
+        position: absolute;
+        bottom: 50px;
+        right: 5%;
+        font-size: 2.5rem;
+        opacity: 0.1;
       }
 
       .map-container {
         border-radius: 15px;
         overflow: hidden;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        box-shadow: 0 10px 30px rgba(220, 20, 60, 0.2);
         margin-bottom: 30px;
+        border: 3px solid rgba(255, 215, 0, 0.3);
+        position: relative;
+        z-index: 1;
       }
 
       .map-container iframe {
@@ -323,35 +420,74 @@
       .btn-map {
         display: inline-block;
         padding: 15px 40px;
-        background: var(--primary-color);
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
         color: white;
         text-decoration: none;
         border-radius: 50px;
         font-weight: 500;
         transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(44, 95, 79, 0.3);
+        box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
+        border: 2px solid transparent;
+        position: relative;
+        z-index: 1;
       }
 
       .btn-map:hover {
-        background: var(--secondary-color);
+        background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
         transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(44, 95, 79, 0.4);
+        box-shadow: 0 6px 20px rgba(220, 20, 60, 0.5);
+        border-color: var(--gold);
       }
 
       /* RSVP Section */
       .rsvp-section {
-        background: linear-gradient(
-          135deg,
-          var(--primary-color),
-          var(--secondary-color)
-        );
+        background:
+          linear-gradient(135deg,
+            rgba(254, 249, 243, 0.95) 0%,
+            rgba(255, 245, 235, 0.95) 50%,
+            rgba(254, 249, 243, 0.95) 100%
+          ),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="rsvp-pattern" x="0" y="0" width="150" height="150" patternUnits="userSpaceOnUse"><g opacity="0.06"><circle cx="75" cy="75" r="10" fill="%23dc143c"/><ellipse cx="75" cy="65" rx="5" ry="13" fill="%23dc143c"/><ellipse cx="65" cy="70" rx="5" ry="13" transform="rotate(-30 65 70)" fill="%23dc143c"/><ellipse cx="85" cy="70" rx="5" ry="13" transform="rotate(30 85 70)" fill="%23dc143c"/></g></pattern><pattern id="gold-clouds" x="0" y="0" width="200" height="100" patternUnits="userSpaceOnUse"><path d="M50 60 Q35 50 45 45 Q60 40 70 45 Q80 40 90 50 Q85 65 70 65 Z" fill="%23ffd700" opacity="0.08"/></pattern></defs><rect fill="%23fef9f3" width="1200" height="800"/><rect fill="url(%23rsvp-pattern)" width="1200" height="800"/><rect fill="url(%23gold-clouds)" width="1200" height="800"/><circle cx="150" cy="150" r="60" fill="%23ffd700" opacity="0.05"/><circle cx="1050" cy="650" r="70" fill="%23dc143c" opacity="0.03"/></svg>');
         padding: 80px 20px;
-        color: white;
+        color: var(--text-dark);
         text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .rsvp-section::before {
+        content: "囍";
+        position: absolute;
+        font-size: 10rem;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        opacity: 0.03;
+        color: var(--gold);
+        font-weight: bold;
+      }
+
+      .rsvp-section::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 5px;
+        background: linear-gradient(90deg,
+          transparent,
+          var(--gold) 20%,
+          var(--red) 50%,
+          var(--gold) 80%,
+          transparent
+        );
       }
 
       .rsvp-section .section-title {
-        color: white;
+        color: var(--primary-color);
+        text-shadow: 0 2px 5px rgba(255, 215, 0, 0.3);
+        position: relative;
+        z-index: 1;
       }
 
       .rsvp-message {
@@ -360,15 +496,34 @@
         max-width: 600px;
         margin: 0 auto 40px;
         line-height: 1.8;
+        position: relative;
+        z-index: 1;
+        color: var(--text-dark);
+        font-style: italic;
       }
 
       .tally-container {
-        background: white;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(254, 249, 243, 0.98));
         border-radius: 15px;
         padding: 40px;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 10px 30px rgba(220, 20, 60, 0.15);
         max-width: 600px;
         margin: 0 auto;
+        border: 3px solid var(--gold);
+        position: relative;
+        z-index: 1;
+      }
+
+      .tally-container::before {
+        content: "🌸";
+        position: absolute;
+        top: -15px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 2rem;
+        background: white;
+        padding: 0 15px;
+        border-radius: 50%;
       }
 
       .tally-placeholder {
@@ -401,10 +556,25 @@
 
       /* Footer */
       .footer {
-        background: var(--text-dark);
+        background:
+          linear-gradient(135deg, #2c2c2c 0%, #1a1a1a 50%, #2c2c2c 100%),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200"><circle cx="200" cy="100" r="30" fill="%23ffd700" opacity="0.05"/><circle cx="1000" cy="100" r="30" fill="%23dc143c" opacity="0.05"/></svg>');
         color: rgba(255, 255, 255, 0.7);
         text-align: center;
         padding: 40px 20px;
+        position: relative;
+      }
+
+      .footer::before {
+        content: "囍";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 5rem;
+        opacity: 0.03;
+        color: var(--gold);
+        font-weight: bold;
       }
 
       .footer-names {
@@ -412,10 +582,25 @@
         font-size: 1.5rem;
         color: white;
         margin-bottom: 15px;
+        position: relative;
+        z-index: 1;
+        text-shadow: 0 2px 5px rgba(255, 215, 0, 0.3);
+      }
+
+      .footer p {
+        position: relative;
+        z-index: 1;
       }
 
       /* Responsive */
       @media (max-width: 768px) {
+        .couple-photo {
+          width: 280px;
+          height: 280px;
+          border: 6px solid var(--gold);
+          box-shadow: 0 12px 40px rgba(220, 20, 60, 0.4), 0 0 0 12px rgba(255, 215, 0, 0.25);
+        }
+
         .couple-names {
           font-size: 2.5rem;
         }
@@ -443,6 +628,13 @@
       }
 
       @media (max-width: 480px) {
+        .couple-photo {
+          width: 220px;
+          height: 220px;
+          border: 5px solid var(--gold);
+          box-shadow: 0 10px 30px rgba(220, 20, 60, 0.4), 0 0 0 10px rgba(255, 215, 0, 0.2);
+        }
+
         .couple-names {
           font-size: 2rem;
         }
@@ -458,8 +650,41 @@
 
       /* Photo Carousel Section */
       .carousel-section {
-        background: white;
+        background:
+          linear-gradient(135deg,
+            rgba(220, 20, 60, 0.03) 0%,
+            rgba(255, 215, 0, 0.05) 25%,
+            rgba(220, 20, 60, 0.03) 50%,
+            rgba(255, 215, 0, 0.05) 75%,
+            rgba(220, 20, 60, 0.03) 100%
+          ),
+          url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="lotus" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse"><g opacity="0.08"><circle cx="100" cy="100" r="15" fill="%23dc143c"/><ellipse cx="100" cy="85" rx="8" ry="20" fill="%23dc143c"/><ellipse cx="85" cy="92" rx="8" ry="20" transform="rotate(-30 85 92)" fill="%23dc143c"/><ellipse cx="115" cy="92" rx="8" ry="20" transform="rotate(30 115 92)" fill="%23dc143c"/><ellipse cx="77" cy="105" rx="8" ry="20" transform="rotate(-60 77 105)" fill="%23dc143c"/><ellipse cx="123" cy="105" rx="8" ry="20" transform="rotate(60 123 105)" fill="%23dc143c"/></g></pattern><pattern id="clouds" x="0" y="0" width="300" height="150" patternUnits="userSpaceOnUse"><g opacity="0.06"><path d="M50 80 Q30 60 50 50 Q70 40 80 50 Q90 40 100 50 Q110 45 115 55 Q120 50 125 60 Q120 75 100 80 Z" fill="%23ffd700"/><path d="M200 100 Q180 85 195 75 Q210 65 220 75 Q230 65 240 75 Q250 70 255 80 Q260 75 265 85 Q255 100 240 105 Z" fill="%23ffd700"/></g></pattern></defs><rect fill="%23fef9f3" width="1200" height="800"/><rect fill="url(%23lotus)" width="1200" height="800"/><rect fill="url(%23clouds)" width="1200" height="800"/><g opacity="0.04"><path d="M100 100 Q150 80 200 100 T300 100" stroke="%23dc143c" stroke-width="3" fill="none"/><path d="M900 600 Q950 580 1000 600 T1100 600" stroke="%23dc143c" stroke-width="3" fill="none"/><circle cx="150" cy="200" r="40" fill="%23ffd700"/><circle cx="1000" cy="650" r="35" fill="%23ffd700"/></g></svg>');
+        background-size: cover;
+        background-position: center;
         padding: 80px 20px;
+        position: relative;
+      }
+
+      .carousel-section::before {
+        content: "囍";
+        position: absolute;
+        top: 50px;
+        right: 10%;
+        font-size: 4rem;
+        color: rgba(220, 20, 60, 0.08);
+        font-weight: bold;
+        z-index: 1;
+      }
+
+      .carousel-section::after {
+        content: "囍";
+        position: absolute;
+        bottom: 50px;
+        left: 10%;
+        font-size: 4rem;
+        color: rgba(255, 215, 0, 0.08);
+        font-weight: bold;
+        z-index: 1;
       }
 
       .carousel-wrapper {
@@ -468,7 +693,9 @@
         margin: 0 auto;
         overflow: hidden;
         border-radius: 20px;
-        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 15px 50px rgba(220, 20, 60, 0.3);
+        border: 3px solid rgba(255, 215, 0, 0.3);
+        z-index: 10;
       }
 
       .carousel-container {
@@ -512,9 +739,9 @@
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        background: rgba(255, 255, 255, 0.9);
-        color: var(--primary-color);
-        border: none;
+        background: rgba(255, 255, 255, 0.95);
+        color: #dc143c;
+        border: 2px solid rgba(255, 215, 0, 0.5);
         width: 50px;
         height: 50px;
         border-radius: 50%;
@@ -525,13 +752,15 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        box-shadow: 0 4px 15px rgba(220, 20, 60, 0.3);
       }
 
       .carousel-btn:hover {
-        background: var(--primary-color);
-        color: white;
+        background: linear-gradient(135deg, #dc143c, #ff6347);
+        color: #ffd700;
+        border-color: #ffd700;
         transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 6px 20px rgba(220, 20, 60, 0.5);
       }
 
       .carousel-btn:active {
@@ -550,6 +779,8 @@
       .carousel-dots {
         text-align: center;
         padding: 30px 0 0;
+        position: relative;
+        z-index: 10;
       }
 
       .carousel-dot {
@@ -557,7 +788,7 @@
         width: 12px;
         height: 12px;
         border-radius: 50%;
-        background: var(--text-light);
+        background: rgba(220, 20, 60, 0.3);
         margin: 0 6px;
         cursor: pointer;
         transition: all 0.3s ease;
@@ -565,13 +796,15 @@
       }
 
       .carousel-dot.active {
-        background: var(--primary-color);
+        background: #dc143c;
         transform: scale(1.3);
-        border-color: var(--accent-color);
+        border-color: #ffd700;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
       }
 
       .carousel-dot:hover {
-        background: var(--accent-color);
+        background: #ffd700;
+        border-color: #dc143c;
       }
 
       /* Mobile Responsive for Carousel */
@@ -609,21 +842,234 @@
           padding: 60px 10px;
         }
       }
+
+      /* Floating Music Player */
+      .music-player {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(254, 249, 243, 0.98));
+        border: 3px solid var(--gold);
+        border-radius: 60px;
+        padding: 15px 25px;
+        box-shadow: 0 8px 30px rgba(220, 20, 60, 0.3);
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        z-index: 1000;
+        transition: all 0.3s ease;
+        backdrop-filter: blur(10px);
+      }
+
+      .music-player:hover {
+        box-shadow: 0 12px 40px rgba(220, 20, 60, 0.5);
+        transform: translateY(-3px);
+      }
+
+      .music-player.collapsed {
+        padding: 15px;
+        border-radius: 50%;
+      }
+
+      .music-player.collapsed .music-controls,
+      .music-player.collapsed .music-info {
+        display: none;
+      }
+
+      .music-toggle {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, var(--red), var(--secondary-color));
+        border: 2px solid var(--gold);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        flex-shrink: 0;
+        font-size: 1.5rem;
+        color: white;
+      }
+
+      .music-toggle:hover {
+        transform: scale(1.1) rotate(5deg);
+        box-shadow: 0 4px 15px rgba(220, 20, 60, 0.5);
+      }
+
+      .music-toggle:active {
+        transform: scale(0.95);
+      }
+
+      .music-info {
+        display: flex;
+        flex-direction: column;
+        min-width: 150px;
+      }
+
+      .music-title {
+        font-family: "Cormorant Garamond", serif;
+        font-size: 1rem;
+        color: var(--red);
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .music-subtitle {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        white-space: nowrap;
+      }
+
+      .music-controls {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .volume-control {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .volume-icon {
+        font-size: 1.2rem;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+      }
+
+      .volume-icon:hover {
+        transform: scale(1.2);
+      }
+
+      .volume-slider {
+        width: 80px;
+        height: 4px;
+        -webkit-appearance: none;
+        appearance: none;
+        background: linear-gradient(90deg, var(--red), var(--gold));
+        border-radius: 5px;
+        outline: none;
+        cursor: pointer;
+      }
+
+      .volume-slider::-webkit-slider-thumb {
+        -webkit-appearance: none;
+        appearance: none;
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--red);
+        border: 2px solid var(--gold);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .volume-slider::-webkit-slider-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+      }
+
+      .volume-slider::-moz-range-thumb {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        background: var(--red);
+        border: 2px solid var(--gold);
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+
+      .volume-slider::-moz-range-thumb:hover {
+        transform: scale(1.2);
+        box-shadow: 0 0 10px rgba(220, 20, 60, 0.5);
+      }
+
+      .expand-toggle {
+        font-size: 1.2rem;
+        cursor: pointer;
+        color: var(--red);
+        transition: transform 0.3s ease;
+        flex-shrink: 0;
+      }
+
+      .expand-toggle:hover {
+        transform: scale(1.2);
+      }
+
+      .music-player.collapsed .expand-toggle {
+        transform: rotate(180deg);
+      }
+
+      @keyframes pulse {
+        0%, 100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+
+      .music-toggle.playing {
+        animation: pulse 2s ease-in-out infinite;
+      }
+
+      @media (max-width: 768px) {
+        .music-player {
+          bottom: 20px;
+          right: 20px;
+          padding: 12px 20px;
+        }
+
+        .music-toggle {
+          width: 45px;
+          height: 45px;
+          font-size: 1.3rem;
+        }
+
+        .music-info {
+          min-width: 120px;
+        }
+
+        .music-title {
+          font-size: 0.9rem;
+        }
+
+        .volume-slider {
+          width: 60px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .music-player {
+          bottom: 15px;
+          right: 15px;
+        }
+
+        .music-player:not(.collapsed) {
+          padding: 10px 15px;
+        }
+
+        .volume-control {
+          display: none;
+        }
+      }
     </style>
   </head>
   <body>
     <!-- Hero Section -->
     <section class="hero">
-      <div style="position: absolute; top: 15%; left: 5%; font-size: 2rem; opacity: 0.2; animation: float 7s ease-in-out infinite;">❤️</div>
-      <div style="position: absolute; top: 70%; left: 10%; font-size: 1.8rem; opacity: 0.2; animation: float 9s ease-in-out infinite reverse;">💖</div>
-      <div style="position: absolute; top: 25%; right: 8%; font-size: 2.2rem; opacity: 0.2; animation: float 8s ease-in-out infinite;">🌸</div>
-      <div style="position: absolute; bottom: 15%; right: 12%; font-size: 2rem; opacity: 0.2; animation: float 10s ease-in-out infinite reverse;">💗</div>
-      <div style="position: absolute; top: 50%; left: 8%; font-size: 1.5rem; opacity: 0.2; animation: float 6s ease-in-out infinite;">🌹</div>
-      <div style="position: absolute; bottom: 25%; right: 5%; font-size: 1.8rem; opacity: 0.2; animation: float 7s ease-in-out infinite reverse;">💝</div>
+      <div style="position: absolute; top: 15%; left: 5%; font-size: 2.5rem; opacity: 0.15; color: #dc143c; animation: float 7s ease-in-out infinite;">🏮</div>
+      <div style="position: absolute; top: 70%; left: 10%; font-size: 2rem; opacity: 0.15; color: #ffd700; animation: float 9s ease-in-out infinite reverse;">🧧</div>
+      <div style="position: absolute; top: 25%; right: 8%; font-size: 2.5rem; opacity: 0.15; color: #ffd700; animation: float 8s ease-in-out infinite;">🏮</div>
+      <div style="position: absolute; bottom: 15%; right: 12%; font-size: 2rem; opacity: 0.15; color: #dc143c; animation: float 10s ease-in-out infinite reverse;">🧧</div>
+      <div style="position: absolute; top: 50%; left: 8%; font-size: 2rem; opacity: 0.12; color: #dc143c; animation: float 6s ease-in-out infinite;">💐</div>
+      <div style="position: absolute; bottom: 25%; right: 5%; font-size: 2rem; opacity: 0.12; color: #ffd700; animation: float 7s ease-in-out infinite reverse;">💐</div>
 
       <div class="hero-content">
         <img
-          src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='95' fill='%23f0f0f0'/%3E%3Ctext x='100' y='115' font-size='80' text-anchor='middle' fill='%23666' font-family='Arial'%3E💑%3C/text%3E%3C/svg%3E"
+          src="./assets/top_image.png"
           alt="Huỳnh Đăng Khoa & Lưu Nguyễn Hồng Sương"
           class="couple-photo"
           id="couplePhoto"
@@ -656,7 +1102,14 @@
     <!-- Photo Carousel Section -->
     <section class="carousel-section">
       <div class="container">
-        <h2 class="section-title">Our Journey Together</h2>
+        <h2 class="section-title" style="color: #dc143c; position: relative; z-index: 10;">
+          <span style="font-size: 2rem; color: #ffd700; display: inline-block; margin-right: 15px;">囍</span>
+          Our Journey Together
+          <span style="font-size: 2rem; color: #ffd700; display: inline-block; margin-left: 15px;">囍</span>
+        </h2>
+        <p style="text-align: center; font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--text-light); margin-bottom: 40px; position: relative; z-index: 10;">
+          Hành trình yêu thương của chúng mình
+        </p>
         <div class="carousel-wrapper">
           <button class="carousel-btn carousel-btn-prev" id="prevBtn" aria-label="Previous photo">‹</button>
           <button class="carousel-btn carousel-btn-next" id="nextBtn" aria-label="Next photo">›</button>
@@ -664,7 +1117,7 @@
           <div class="carousel-container" id="carouselContainer">
             <!-- Photo 1 - Placeholder -->
             <div class="carousel-slide">
-              <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 900 600'%3E%3Cdefs%3E%3ClinearGradient id='grad1' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%23ff9eb3;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%23ffd4d9;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect fill='url(%23grad1)' width='900' height='600'/%3E%3Ctext x='450' y='280' font-size='120' text-anchor='middle' fill='%23ffffff' font-family='Arial'%3E💑%3C/text%3E%3Ctext x='450' y='350' font-size='28' text-anchor='middle' fill='%23ffffff' font-family='Arial'%3EPhoto 1%3C/text%3E%3C/svg%3E"
+              <img src="./assets/wedding-photo-1.jpg"
                    alt="Wedding photo 1">
               <div class="carousel-caption">Replace with your beautiful moment</div>
             </div>
@@ -839,6 +1292,20 @@
 
     <!-- RSVP Section -->
     <section class="rsvp-section">
+      <!-- Vietnamese Wedding Decorative Icons -->
+      <div style="position: absolute; top: 10%; left: 5%; font-size: 2.5rem; opacity: 0.12; color: #dc143c; animation: float 7s ease-in-out infinite;">🏮</div>
+      <div style="position: absolute; top: 15%; right: 8%; font-size: 2.5rem; opacity: 0.12; color: #ffd700; animation: float 8s ease-in-out infinite reverse;">🏮</div>
+      <div style="position: absolute; top: 35%; left: 3%; font-size: 2rem; opacity: 0.1; color: #ffd700; animation: float 9s ease-in-out infinite;">🧧</div>
+      <div style="position: absolute; top: 40%; right: 5%; font-size: 2rem; opacity: 0.1; color: #dc143c; animation: float 10s ease-in-out infinite reverse;">🧧</div>
+      <div style="position: absolute; top: 60%; left: 7%; font-size: 2.2rem; opacity: 0.11; color: #dc143c; animation: float 8s ease-in-out infinite reverse;">🪷</div>
+      <div style="position: absolute; top: 65%; right: 6%; font-size: 2.2rem; opacity: 0.11; color: #ffd700; animation: float 7s ease-in-out infinite;">🪷</div>
+      <div style="position: absolute; bottom: 15%; left: 6%; font-size: 2rem; opacity: 0.1; color: #ffd700; animation: float 9s ease-in-out infinite;">🌸</div>
+      <div style="position: absolute; bottom: 20%; right: 7%; font-size: 2rem; opacity: 0.1; color: #dc143c; animation: float 8s ease-in-out infinite reverse;">🌸</div>
+      <div style="position: absolute; top: 25%; left: 10%; font-size: 1.8rem; opacity: 0.08; color: #ffd700; animation: float 10s ease-in-out infinite;">💐</div>
+      <div style="position: absolute; top: 75%; right: 10%; font-size: 1.8rem; opacity: 0.08; color: #dc143c; animation: float 9s ease-in-out infinite reverse;">💐</div>
+      <div style="position: absolute; top: 50%; left: 2%; font-size: 1.5rem; opacity: 0.07; color: #ffd700; animation: float 11s ease-in-out infinite;">🎋</div>
+      <div style="position: absolute; top: 55%; right: 2%; font-size: 1.5rem; opacity: 0.07; color: #dc143c; animation: float 10s ease-in-out infinite reverse;">🎋</div>
+
       <div class="container">
         <h2 class="section-title">RSVP</h2>
         <p class="rsvp-message">
@@ -876,6 +1343,31 @@
         <p>January 20, 2026</p>
       </div>
     </footer>
+
+    <!-- Floating Music Player -->
+    <div class="music-player" id="musicPlayer">
+      <div class="music-toggle" id="playPauseBtn">
+        <span id="playIcon">▶️</span>
+      </div>
+      <div class="music-info">
+        <div class="music-title">Wedding Music</div>
+        <div class="music-subtitle">Background Music</div>
+      </div>
+      <div class="music-controls">
+        <div class="volume-control">
+          <span class="volume-icon" id="volumeIcon">🔊</span>
+          <input type="range" min="0" max="100" value="50" class="volume-slider" id="volumeSlider">
+        </div>
+      </div>
+      <span class="expand-toggle" id="expandToggle">◀</span>
+    </div>
+
+    <!-- Audio Element -->
+    <audio id="weddingAudio" loop>
+      <source src="./assets/wedding-music.mp3" type="audio/mpeg">
+      <source src="./assets/wedding-music.ogg" type="audio/ogg">
+      Your browser does not support the audio element.
+    </audio>
 
     <script>
       // Countdown Timer
@@ -1028,6 +1520,100 @@
 
         // Initialize carousel
         updateCarousel();
+      })();
+
+      // Music Player Functionality
+      (function() {
+        const audio = document.getElementById('weddingAudio');
+        const playPauseBtn = document.getElementById('playPauseBtn');
+        const playIcon = document.getElementById('playIcon');
+        const volumeSlider = document.getElementById('volumeSlider');
+        const volumeIcon = document.getElementById('volumeIcon');
+        const expandToggle = document.getElementById('expandToggle');
+        const musicPlayer = document.getElementById('musicPlayer');
+
+        let isPlaying = false;
+        let isCollapsed = false;
+
+        // Set initial volume
+        audio.volume = volumeSlider.value / 100;
+
+        // Play/Pause functionality
+        playPauseBtn.addEventListener('click', function() {
+          if (isPlaying) {
+            audio.pause();
+            playIcon.textContent = '▶️';
+            playPauseBtn.classList.remove('playing');
+            isPlaying = false;
+          } else {
+            audio.play().then(() => {
+              playIcon.textContent = '⏸️';
+              playPauseBtn.classList.add('playing');
+              isPlaying = true;
+            }).catch(error => {
+              console.log('Autoplay prevented:', error);
+              // User needs to interact first
+            });
+          }
+        });
+
+        // Volume control
+        volumeSlider.addEventListener('input', function() {
+          audio.volume = this.value / 100;
+          updateVolumeIcon(this.value);
+        });
+
+        // Volume icon click to mute/unmute
+        volumeIcon.addEventListener('click', function() {
+          if (audio.volume > 0) {
+            audio.volume = 0;
+            volumeSlider.value = 0;
+            updateVolumeIcon(0);
+          } else {
+            audio.volume = 0.5;
+            volumeSlider.value = 50;
+            updateVolumeIcon(50);
+          }
+        });
+
+        function updateVolumeIcon(volume) {
+          if (volume == 0) {
+            volumeIcon.textContent = '🔇';
+          } else if (volume < 50) {
+            volumeIcon.textContent = '🔉';
+          } else {
+            volumeIcon.textContent = '🔊';
+          }
+        }
+
+        // Expand/Collapse functionality
+        expandToggle.addEventListener('click', function() {
+          isCollapsed = !isCollapsed;
+          if (isCollapsed) {
+            musicPlayer.classList.add('collapsed');
+            expandToggle.textContent = '▶';
+          } else {
+            musicPlayer.classList.remove('collapsed');
+            expandToggle.textContent = '◀';
+          }
+        });
+
+        // Handle audio ended (though it's looping, good to have)
+        audio.addEventListener('ended', function() {
+          playIcon.textContent = '▶️';
+          playPauseBtn.classList.remove('playing');
+          isPlaying = false;
+        });
+
+        // Show a subtle notification on first load
+        setTimeout(() => {
+          if (!isPlaying) {
+            playPauseBtn.style.boxShadow = '0 0 20px rgba(255, 215, 0, 0.8)';
+            setTimeout(() => {
+              playPauseBtn.style.boxShadow = '';
+            }, 2000);
+          }
+        }, 1000);
       })();
     </script>
   </body>

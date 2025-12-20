@@ -1,0 +1,35 @@
+# Git files
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+QUICK-START.md
+CLAUDE.md
+
+# Development files
+progress.json
+.claude/
+
+# Docker files (we don't need these inside the container)
+Dockerfile
+docker-compose.yml
+.dockerignore
+
+# Production Caddyfile (we use Caddyfile.docker instead)
+Caddyfile
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~

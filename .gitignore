@@ -2,3 +2,6 @@ assets/
 *.mp3
 *.jpg
 *.png
+
+
+*.env

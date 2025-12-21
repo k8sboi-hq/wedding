@@ -1,6 +1,11 @@
-version: '3.8'
-
 services:
+  tunnel:
+    image: cloudflare/cloudflared:latest
+    container_name: cf-tunnel
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    env_file: .env
+
   wedding-website:
     build:
       context: .
@@ -8,8 +13,6 @@ services:
     container_name: wedding-website
     ports:
       - "8080:80"
-      # Uncomment for HTTPS in production
-      # - "8443:443"
     volumes:
       # Mount for live development (optional - comment out for production)
       - ./index.html:/srv/index.html:ro

@@ -3,7 +3,6 @@
 ## Project Overview
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-This is a static wedding invitation website for Daniel & Lưu Nguyễn Hồng Sương's wedding on January 25, 2026. The site features a countdown timer, Google Maps integration for the venue (Garden Plaza Saigon), and a placeholder for Tally form RSVP integration.
 
 ## Technology Stack
 
@@ -85,27 +84,6 @@ Wedding date: **Sunday, January 25, 2026 at 18:00 ICT**
 - Display date: lines 439, 488, 569
 - Countdown timer: line 579
 
-### Couple Photo
-
-Replace the placeholder SVG (line 468-471):
-
-```javascript
-// Uncomment line 613 and update path
-document.getElementById("couplePhoto").src = "couple-photo.jpg";
-```
-
-### Open Graph Image for Social Sharing
-
-Create a preview image for social media sharing:
-
-1. Create `og-image.jpg` (1200x630px) with couple photo and wedding details
-2. Upload to `/var/www/wedding/og-image.jpg`
-3. Update meta tag URLs (lines 20, 33) to use actual domain
-
-### Tally Form Integration
-
-Replace the placeholder (lines 506-524) with actual Tally embed code from https://tally.so
-
 ### CSS Variables
 
 Customize colors via CSS variables (lines 21-28):
@@ -134,12 +112,6 @@ Current venue: Garden Plaza Saigon (170 Nguyen Van Troi St, Phu Nhuan District, 
 1. Upload image to `/var/www/wedding/couple-photo.jpg`
 2. Uncomment line 575 or directly edit img src at line 397
 
-### Integrate RSVP Form
-
-1. Create form at https://tally.so with fields: name, email, guest count, dietary restrictions, message
-2. Get embed code from Tally (Share → Embed)
-3. Replace entire `.tally-placeholder` div (lines 506-524) with Tally iframe + script
-
 ### Change Venue
 
 1. Find new venue on Google Maps
@@ -150,10 +122,8 @@ Current venue: Garden Plaza Saigon (170 Nguyen Van Troi St, Phu Nhuan District, 
 
 ## Important Notes
 
-- **No build process** - Edit HTML directly, changes are immediate
 - **Vietnamese font support** - Cormorant Garamond handles Vietnamese characters (Lưu Nguyễn Hồng Sương)
 - **Responsive design** - Mobile breakpoints at 768px and 480px
-- **No git repository** - Manual file management required
 - **Security headers** - Pre-configured in Caddyfile (HSTS, CSP, etc.)
 
 ## File Permissions

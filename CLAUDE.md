@@ -3,26 +3,7 @@
 ## Project Overview
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-## Technology Stack
-
-- **Pure HTML/CSS/JavaScript/Jquery** - No build tools needed
-- **Caddy** - Web server with automatic HTTPS
-- **Google Fonts** - Playfair Display, Cormorant Garamond, Montserrat
-- **Tally.so** - External form service for RSVP (integration pending)
-
-## Deployment
-
-### Production Deployment
-
-The website is served by Caddy from `/var/www/wedding/`:
-
-```bash
-# Deploy to production
-sudo cp index.html /var/www/wedding/
-sudo chown -R caddy:caddy /var/www/wedding
-sudo systemctl reload caddy
-```
+Starting the session by checking the recent commit history is recommended and then read the `progress.json` file for context on what has been done and what remains.
 
 ### Caddyfile Configuration
 
@@ -50,8 +31,6 @@ sudo caddy validate --config /etc/caddy/Caddyfile  # Validate config
 ```
 
 ## Site Structure
-
-**Single-page application** with these sections (all in `index.html`):
 
 1. **Hero Section** - Couple photo, names, and wedding date
 2. **Countdown Timer** - Live JavaScript countdown to wedding day

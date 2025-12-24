@@ -27,7 +27,7 @@ export default function PhotoCarousel() {
       style={{ backgroundImage: SVG_PATTERNS.carouselLotus, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >
       {/* Orbiting decorations */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none" aria-hidden="true">
         {[
           { emoji: "📸", duration: "22s", radius: "280px", delay: "0s" },
           { emoji: "💕", duration: "26s", radius: "320px", delay: "4s", reverse: true },
@@ -50,8 +50,8 @@ export default function PhotoCarousel() {
       </div>
 
       {/* Double Happiness Decorations */}
-      <div className="absolute top-12 right-[10%] text-6xl text-primary/8 font-bold z-10">囍</div>
-      <div className="absolute bottom-12 left-[10%] text-6xl text-primary/8 font-bold z-10">囍</div>
+      <div className="absolute top-12 right-[10%] text-6xl text-primary/8 font-bold z-10" aria-hidden="true">囍</div>
+      <div className="absolute bottom-12 left-[10%] text-6xl text-primary/8 font-bold z-10" aria-hidden="true">囍</div>
 
       <div className="container mx-auto px-4 relative z-20">
         <h2 className="font-serif text-4xl md:text-3xl sm:text-2xl font-bold text-center text-primary mb-12">
@@ -100,7 +100,7 @@ export default function PhotoCarousel() {
                   </div>
                   {/* Caption */}
                   <div className="absolute bottom-8 left-0 right-0 text-center">
-                    <p className="text-white text-lg font-serif bg-black/50 backdrop-blur-sm py-2 px-4 rounded-full inline-block">
+                    <p className="text-white text-lg font-serif bg-black/70 backdrop-blur-sm py-2 px-4 rounded-full inline-block">
                       {photo.caption}
                     </p>
                   </div>

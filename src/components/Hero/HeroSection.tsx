@@ -16,7 +16,7 @@ export default function HeroSection() {
       }}
     >
       {/* Double Happiness Background Symbol */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20rem] font-bold text-accent opacity-5 select-none pointer-events-none">
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20rem] font-bold text-accent opacity-5 select-none pointer-events-none" aria-hidden="true">
         囍
       </div>
 
@@ -32,7 +32,7 @@ export default function HeroSection() {
               <Image
                 id="couple-photo"
                 src="/assets/top_image.webp"
-                alt="Khoa & Sương"
+                alt="Engagement photo of Khoa and Sương"
                 fill
                 className="rounded-full object-cover"
                 priority

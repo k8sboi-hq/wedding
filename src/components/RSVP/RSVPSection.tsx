@@ -1,8 +1,12 @@
-import RSVPForm from "./RSVPForm";
+'use client';
+
+import { useState } from "react";
 import EnvelopeIcon from "./EnvelopeIcon";
 import { SVG_PATTERNS } from "@/lib/svgPatterns";
+import { Button } from "@/components/ui/button";
 
 export default function RSVPSection() {
+  const [showQR, setShowQR] = useState(false);
   return (
     <section
       className="relative py-20 bg-gradient-to-br from-primary/5 via-accent/10 to-primary/5 overflow-hidden"
@@ -52,21 +56,62 @@ export default function RSVPSection() {
             <EnvelopeIcon className="w-24 h-24 mx-auto" />
           </div>
           <h2 className="font-serif text-4xl md:text-3xl sm:text-2xl font-bold text-primary mb-4">
-            RSVP
+            Your Presence is Our Present
           </h2>
-          <p className="font-serif text-xl md:text-lg text-muted-foreground italic max-w-2xl mx-auto">
-            We would be honored by your presence at our wedding celebration.
-            Please let us know if you can join us!
+          <p className="font-serif text-xl md:text-lg text-muted-foreground italic max-w-2xl mx-auto mb-4">
+            Though miles may keep us apart on our special day, your love transcends all distance.
+          </p>
+          <p className="font-serif text-lg md:text-base text-muted-foreground max-w-2xl mx-auto">
+            If you cannot join us in person but still wish to shower us with your blessings, we would be deeply touched by your thoughtfulness.
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto">
-          <RSVPForm />
+        <div className="max-w-2xl mx-auto">
+          <div className="bg-white/95 backdrop-blur-sm rounded-xl border-3 border-accent shadow-xl p-8 md:p-12">
+            <div className="flex flex-col items-center gap-6">
+              {!showQR ? (
+                <div className="text-center space-y-6">
+                  <div className="space-y-3">
+                    <p className="font-serif text-2xl text-primary">
+                      Send Your Love & Wishes
+                    </p>
+                    <p className="text-muted-foreground">
+                      Your generous heart and warm wishes mean everything to us. Click below to share your blessing.
+                    </p>
+                  </div>
+                  <Button
+                    onClick={() => setShowQR(true)}
+                    className="cursor-pointer bg-primary hover:bg-primary/90 text-white px-8 py-6 text-lg font-serif rounded-lg shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    Open QR Code
+                  </Button>
+                </div>
+              ) : (
+                <>
+                  <div className="w-64 h-64 bg-gradient-to-br from-primary/10 to-accent/10 rounded-lg border-2 border-dashed border-primary/30 flex items-center justify-center">
+                    <div className="text-center p-4">
+                      <p className="text-muted-foreground text-sm mb-2">QR Code Placeholder</p>
+                      <p className="text-xs text-muted-foreground/70">Bank Transfer QR Code will appear here</p>
+                    </div>
+                  </div>
+
+                  <div className="text-center space-y-2">
+                    <p className="font-serif text-lg text-muted-foreground">
+                      Scan to send your heartfelt wishes
+                    </p>
+                    <p className="text-sm text-muted-foreground/80">
+                      Every gesture of kindness fills our hearts with joy
+                    </p>
+                  </div>
+                </>
+              )}
+            </div>
+          </div>
         </div>
 
         <div className="text-center mt-12">
-          <p className="text-muted-foreground text-sm">
-            Can't wait to celebrate with you! 🎉
+          <p className="font-serif text-muted-foreground italic">
+            Your love and support are the greatest gifts we could ever receive 💝
           </p>
         </div>
       </div>

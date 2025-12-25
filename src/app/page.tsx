@@ -1,11 +1,13 @@
+import { Suspense } from "react";
 import HeroSection from "@/components/Hero/HeroSection";
 import PhotoCarousel from "@/components/PhotoCarousel/PhotoCarousel";
 import CountdownSection from "@/components/Countdown/CountdownSection";
-import DetailsSection from "@/components/Details/DetailsSection";
-import MapsSection from "@/components/Maps/MapsSection";
 import RSVPSection from "@/components/RSVP/RSVPSection";
 import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
 import Footer from "@/components/Footer/Footer";
+import PartyFilteredContent from "@/components/PartyFilteredContent";
+import DetailsSection from "@/components/Details/DetailsSection";
+import MapsSection from "@/components/Maps/MapsSection";
 
 export default function Home() {
   return (
@@ -20,8 +22,16 @@ export default function Home() {
         <HeroSection />
         <PhotoCarousel />
         <CountdownSection />
-        <DetailsSection />
-        <MapsSection />
+        <Suspense
+          fallback={
+            <>
+              <DetailsSection partyFilter={null} />
+              <MapsSection partyFilter={null} />
+            </>
+          }
+        >
+          <PartyFilteredContent />
+        </Suspense>
         <RSVPSection />
         <Footer />
         <MusicPlayer />

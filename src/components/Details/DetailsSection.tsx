@@ -2,9 +2,20 @@ import { WEDDING_DATA } from "@/lib/constants";
 import DetailCard from "./DetailCard";
 import DoubleHappinessIcon from "@/components/Icons/DoubleHappinessIcon";
 import { SVG_PATTERNS } from "@/lib/svgPatterns";
+import { PartyFilter, getCelebrations } from "@/lib/partyFilter";
 
-export default function DetailsSection() {
+interface DetailsSectionProps {
+  partyFilter: PartyFilter;
+}
+
+export default function DetailsSection({ partyFilter }: DetailsSectionProps) {
   const { dates, venues } = WEDDING_DATA;
+  const { showFirstParty, showSecondParty } = getCelebrations(partyFilter);
+
+  // Determine subtitle based on what's shown
+  const subtitle = showFirstParty && showSecondParty
+    ? "Join us for two beautiful celebrations"
+    : "Join us for our celebration";
 
   return (
     <section
@@ -69,32 +80,36 @@ export default function DetailsSection() {
             Celebration Details
           </h2>
           <p className="font-serif text-xl md:text-lg text-muted-foreground italic">
-            Join us for two beautiful celebrations
+            {subtitle}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+        <div className={`grid ${showFirstParty && showSecondParty ? 'md:grid-cols-2' : 'md:grid-cols-1 max-w-2xl'} gap-8 mx-auto ${showFirstParty && showSecondParty ? 'max-w-5xl' : ''}`}>
           {/* First Party */}
-          <DetailCard
-            title="Guest Celebration - Day 1"
-            date={dates.firstParty.dateDisplay}
-            receptionTime={dates.firstParty.receptionTime}
-            dinnerTime={dates.firstParty.dinnerTime}
-            venueName={venues.francisHoi.name}
-            venueAddress={venues.francisHoi.address}
-            venueCity={venues.francisHoi.city}
-          />
+          {showFirstParty && (
+            <DetailCard
+              title="Guest Celebration - Day 1"
+              date={dates.firstParty.dateDisplay}
+              receptionTime={dates.firstParty.receptionTime}
+              dinnerTime={dates.firstParty.dinnerTime}
+              venueName={venues.francisHoi.name}
+              venueAddress={venues.francisHoi.address}
+              venueCity={venues.francisHoi.city}
+            />
+          )}
 
           {/* Second Party */}
-          <DetailCard
-            title="Guest Celebration - Day 2"
-            date={dates.secondParty.dateDisplay}
-            receptionTime={dates.secondParty.receptionTime}
-            dinnerTime={dates.secondParty.dinnerTime}
-            venueName={venues.gardenPlaza.name}
-            venueAddress={`${venues.gardenPlaza.address}, ${venues.gardenPlaza.ward}`}
-            venueCity={venues.gardenPlaza.city}
-          />
+          {showSecondParty && (
+            <DetailCard
+              title="Guest Celebration - Day 2"
+              date={dates.secondParty.dateDisplay}
+              receptionTime={dates.secondParty.receptionTime}
+              dinnerTime={dates.secondParty.dinnerTime}
+              venueName={venues.gardenPlaza.name}
+              venueAddress={`${venues.gardenPlaza.address}, ${venues.gardenPlaza.ward}`}
+              venueCity={venues.gardenPlaza.city}
+            />
+          )}
         </div>
 
         {/* Main Wedding Note */}

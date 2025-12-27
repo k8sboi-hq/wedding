@@ -28,7 +28,7 @@ export default function HeroSection() {
         {/* Couple Photo */}
         <div className="mb-8 inline-block animate-[fadeIn_1s_ease-out]">
           <div className="relative w-[350px] h-[350px] md:w-[280px] md:h-[280px] sm:w-[220px] sm:h-[220px]">
-            <div className="absolute inset-0 rounded-full border-8 md:border-6 border-accent shadow-[0_15px_50px_rgba(220,20,60,0.4),0_0_0_15px_rgba(255,215,0,0.25),0_0_40px_rgba(255,215,0,0.15)] animate-[lotusPulse_4s_ease-in-out_infinite]">
+            <div className="absolute inset-0 rounded-full border-8 md:border-6 border-accent-pink shadow-[0_15px_50px_rgba(220,20,60,0.4),0_0_0_15px_rgba(255,145,164,0.25),0_0_40px_rgba(255,145,164,0.15)] animate-[lotusPulse_4s_ease-in-out_infinite]">
               <Image
                 id="couple-photo"
                 src="/assets/top_image.webp"

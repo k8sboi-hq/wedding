@@ -3,7 +3,11 @@
 ## Project Overview
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-Starting the session by checking the recent commit history is recommended and then read the `progress.json` file for context on what has been done and what remains.
+
+## Getting started for Claude
+
+- Starting the session by checking the recent commit history is recommended
+- Read the `progress.json` file for context on what has been done and what remains.
 
 ## Site Structure
 
@@ -22,7 +26,7 @@ Starting the session by checking the recent commit history is recommended and th
     │   ├── Maps - Embedded Google Maps iframe + link
     │   ├── MusicPlayer - Music player with wedding playlist including Icons
     │   ├── PhotoCarousel
-    │   ├── RSVP - QR Code for sending money when unable to attend
+    │   ├── RSVP - Invitation Card for both Parties and QR Code for sending money when unable to attend
     │   └── ui - reusable UI components (Button, Card, Modal, etc.)
     └── lib - Utils, custom SVG_PATTERNS, and constants
 ```

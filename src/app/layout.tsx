@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Cormorant_Garamond, Montserrat } from "next/font/google";
+import { Playfair_Display, Cormorant_Garamond, Montserrat, Dancing_Script } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -20,6 +20,13 @@ const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500"],
   variable: "--font-montserrat",
+  display: "swap",
+});
+
+const dancingScript = Dancing_Script({
+  subsets: ["latin", "vietnamese"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-dancing",
   display: "swap",
 });
 
@@ -63,7 +70,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${montserrat.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${montserrat.variable} ${dancingScript.variable}`}>
       <body className="font-montserrat antialiased">
         {children}
       </body>

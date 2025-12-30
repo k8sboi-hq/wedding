@@ -37,7 +37,8 @@ export const WEDDING_DATA = {
       address: "187 Gia Long, Lái Thiêu",
       city: "Thuận An, Bình Dương, Vietnam",
       mapUrl: "https://maps.app.goo.gl/qC6mUctkiKM8V2bP7",
-      embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.9631919847536!2d106.71851007583384!3d10.936894556096954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d9a7b3e8a5a7%3A0x8b5e6e6e6e6e6e6e!2sFrancis%20H%E1%BB%99i%20Restaurant!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s",
+      embedUrl:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.9631919847536!2d106.71851007583384!3d10.936894556096954!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3174d9a7b3e8a5a7%3A0x8b5e6e6e6e6e6e6e!2sFrancis%20H%E1%BB%99i%20Restaurant!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s",
     },
     gardenPlaza: {
       name: "Garden Plaza Saigon",
@@ -45,7 +46,8 @@ export const WEDDING_DATA = {
       ward: "Ward 8, Phu Nhuan District",
       city: "Ho Chi Minh City, Vietnam",
       mapUrl: "https://maps.app.goo.gl/Edi1Vw3ed3ziP7bJ7",
-      embedUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.239596547837!2d106.67544937583186!3d10.797663589351877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528d4a7c59c91%3A0x6b38b38b38b38b38!2sGarden%20Plaza%20Saigon!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s",
+      embedUrl:
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.239596547837!2d106.67544937583186!3d10.797663589351877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528d4a7c59c91%3A0x6b38b38b38b38b38!2sGarden%20Plaza%20Saigon!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s",
     },
   },
   photos: [
@@ -77,19 +79,24 @@ export const WEDDING_DATA = {
   ],
   musicPlaylist: [
     {
-      title: "Die with a smile",
-      artist: "Bruno Mars and Lady Gaga",
-      file: "/assets/die-with-a-smile.mp3",
-    },
-    {
-      title: "A Thousand Years",
-      artist: "Christina Perri",
-      file: "/assets/a-thousand-years.mp3",
+      title: "Hold My Hand",
+      artist: "Jess Glynne",
+      file: "/assets/hold-my-hand.mp3",
     },
     {
       title: "Marry You",
       artist: "Bruno Mars",
       file: "/assets/marry-you.mp3",
+    },
+    {
+      title: "Never Gonna Give You Up",
+      artist: "Rick Astley",
+      file: "/assets/never-gonna-give-you-up.mp3",
+    },
+    {
+      title: "A Thousand Years",
+      artist: "Christina Perri",
+      file: "/assets/a-thousand-years.mp3",
     },
     {
       title: "Photograph",
@@ -110,5 +117,5 @@ export const WEDDING_DATA = {
 } as const;
 
 export type WeddingData = typeof WEDDING_DATA;
-export type Photo = typeof WEDDING_DATA.photos[number];
-export type Track = typeof WEDDING_DATA.musicPlaylist[number];
+export type Photo = (typeof WEDDING_DATA.photos)[number];
+export type Track = (typeof WEDDING_DATA.musicPlaylist)[number];

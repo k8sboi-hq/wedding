@@ -9,7 +9,8 @@ Starting the session by checking the recent commit history is recommended and th
 
 ```
 .
-├── public
+├── public - all assets
+    ├── assets - musics, images
 └── src
     ├── app - Page and layouts and Global CSS
     ├── components - Many reusable components
@@ -49,6 +50,7 @@ npm run build
 
 ## Important Notes
 
+- **Roles** - This Project is implemented by Claude 95%, Daniel plays as Product Manager and does 5% of the code.
 - **Vietnamese font support** - Cormorant Garamond handles Vietnamese characters (Lưu Nguyễn Hồng Sương)
 - **Responsive design** - Mobile breakpoints at 768px and 480px
 - **Security headers** - Pre-configured in Caddyfile (HSTS, CSP, etc.)

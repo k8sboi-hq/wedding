@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Cormorant_Garamond, Merriweather, Montserrat, Dancing_Script } from "next/font/google";
+import { Playfair_Display, Cormorant_Garamond, Merriweather, Montserrat, Dancing_Script, Pinyon_Script } from "next/font/google";
 import "./globals.css";
 
 const playfair = Playfair_Display({
@@ -34,6 +34,13 @@ const dancingScript = Dancing_Script({
   subsets: ["latin", "vietnamese"],
   weight: ["400", "500", "600", "700"],
   variable: "--font-dancing",
+  display: "swap",
+});
+
+const pinyonScript = Pinyon_Script({
+  subsets: ["latin"],
+  weight: ["400"],
+  variable: "--font-pinyon",
   display: "swap",
 });
 
@@ -77,7 +84,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${merriweather.variable} ${montserrat.variable} ${dancingScript.variable}`}>
+    <html lang="en" className={`${playfair.variable} ${cormorant.variable} ${merriweather.variable} ${montserrat.variable} ${dancingScript.variable} ${pinyonScript.variable}`}>
       <body className="antialiased">
         {children}
       </body>

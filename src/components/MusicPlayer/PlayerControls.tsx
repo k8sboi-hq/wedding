@@ -7,13 +7,13 @@ interface PlayerControlsProps {
 
 export default function PlayerControls({ onPrev, onNext }: PlayerControlsProps) {
   return (
-    <div className="flex items-center gap-2">
+    <div className="flex items-center gap-1 sm:gap-2">
       <button
         onClick={onPrev}
         className="text-primary hover:text-primary/80 transition-colors"
         aria-label="Previous track"
       >
-        <PreviousIcon className="w-5 h-5" />
+        <PreviousIcon className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
 
       <button
@@ -21,7 +21,7 @@ export default function PlayerControls({ onPrev, onNext }: PlayerControlsProps) 
         className="text-primary hover:text-primary/80 transition-colors"
         aria-label="Next track"
       >
-        <NextIcon className="w-5 h-5" />
+        <NextIcon className="w-4 h-4 sm:w-5 sm:h-5" />
       </button>
     </div>
   );

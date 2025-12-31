@@ -1,30 +1,34 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect, useCallback } from 'react';
-import { WEDDING_DATA } from '@/lib/constants';
+import { useState, useRef, useEffect, useCallback } from "react";
+import { WEDDING_DATA } from "@/lib/constants";
 
 export function useMusicPlayer() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
-  const [isCollapsed, setIsCollapsed] = useState(false);
+  const [isCollapsed, setIsCollapsed] = useState(true);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const playlist = WEDDING_DATA.musicPlaylist;
   const currentTrack = playlist[currentTrackIndex];
 
-  const loadTrack = useCallback((index: number) => {
-    let newIndex = index;
-    if (newIndex < 0) newIndex = playlist.length - 1;
-    if (newIndex >= playlist.length) newIndex = 0;
-    setCurrentTrackIndex(newIndex);
-  }, [playlist.length]);
+  const loadTrack = useCallback(
+    (index: number) => {
+      let newIndex = index;
+      if (newIndex < 0) newIndex = playlist.length - 1;
+      if (newIndex >= playlist.length) newIndex = 0;
+      setCurrentTrackIndex(newIndex);
+    },
+    [playlist.length],
+  );
 
   const playTrack = useCallback(() => {
     if (audioRef.current) {
-      audioRef.current.play()
+      audioRef.current
+        .play()
         .then(() => setIsPlaying(true))
-        .catch((error) => console.log('Autoplay prevented:', error));
+        .catch((error) => console.log("Autoplay prevented:", error));
     }
   }, []);
 
@@ -73,7 +77,7 @@ export function useMusicPlayer() {
   }, [volume, handleVolumeChange]);
 
   const toggleCollapse = useCallback(() => {
-    setIsCollapsed(prev => !prev);
+    setIsCollapsed((prev) => !prev);
   }, []);
 
   // Auto-play on mount (with delay to allow user gesture)

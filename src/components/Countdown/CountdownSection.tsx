@@ -4,9 +4,11 @@ import { useCountdown } from "./useCountdown";
 import CountdownTimer from "./CountdownTimer";
 import HeartFrame from "./HeartFrame";
 import { SVG_PATTERNS } from "@/lib/svgPatterns";
+import { WEDDING_DATA } from "@/lib/constants";
 
 export default function CountdownSection() {
   const timeRemaining = useCountdown();
+  const { dates } = WEDDING_DATA;
 
   return (
     <section
@@ -19,7 +21,10 @@ export default function CountdownSection() {
       }}
     >
       {/* Orbiting decorations */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none" aria-hidden="true">
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none"
+        aria-hidden="true"
+      >
         {[
           { emoji: "❤️", duration: "18s", radius: "250px", delay: "0s" },
           {
@@ -56,9 +61,17 @@ export default function CountdownSection() {
       </div>
 
       <div className="container mx-auto px-4 text-center relative z-10">
-        <h2 className="font-serif text-4xl md:text-3xl sm:text-2xl font-bold text-primary mb-4">
-          Counting Down to Our Big Day
-        </h2>
+        {/* <h2 className="font-serif text-4xl md:text-3xl sm:text-2xl font-regular text-secondary mb-4"> */}
+        {/*   Ngày Đặc Biệt */}
+        {/* </h2> */}
+
+        {/* Wedding Date - Big and Prominent */}
+        <p
+          id="wedding-date-big"
+          className="font-pinyon text-5xl md:text-4xl sm:text-3xl text-primary font-bold mb-8 animate-[fadeInUp_1s_ease-out]"
+        >
+          {dates.mainWedding.dateDisplay}
+        </p>
 
         {/* Couple Emoji with Heart Frame */}
         {/* <div className="mb-8 animate-[fadeIn_1s_ease-out] flex justify-center"> */}
@@ -69,7 +82,7 @@ export default function CountdownSection() {
         {/* </div> */}
 
         <p className="font-serif text-xl md:text-lg text-muted-foreground italic mb-12">
-          We can&apos;t wait to celebrate with you!
+          Cảm ơn bạn đã đến chung vui cùng chúng mình!
         </p>
 
         {timeRemaining.isComplete ? (

@@ -1,10 +1,12 @@
 export const WEDDING_DATA = {
   couple: {
     groom: {
+      firstName: "Khoa",
       fullName: "Huỳnh Đăng Khoa",
       englishName: "Daniel",
     },
     bride: {
+      firstName: "Sương",
       fullName: "Lưu Nguyễn Hồng Sương",
       englishName: "Rachel",
     },
@@ -12,7 +14,7 @@ export const WEDDING_DATA = {
   dates: {
     mainWedding: {
       date: "2026-01-20",
-      dateDisplay: "Tuesday, January 20, 2026",
+      dateDisplay: "Ngày 20 Tháng 1, 2026",
       time: "18:00",
       timezone: "Asia/Ho_Chi_Minh",
       description: "At our home in Ho Chi Minh City",

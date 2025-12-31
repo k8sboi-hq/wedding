@@ -17,7 +17,10 @@ export default function HeroSection() {
       }}
     >
       {/* Double Happiness Background Symbol */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20rem] font-bold text-accent opacity-5 select-none pointer-events-none" aria-hidden="true">
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20rem] font-bold text-accent opacity-5 select-none pointer-events-none"
+        aria-hidden="true"
+      >
         囍
       </div>
 
@@ -44,9 +47,9 @@ export default function HeroSection() {
         </div>
 
         {/* Couple Names */}
-        <h1 className="font-serif text-5xl md:text-4xl sm:text-3xl font-bold text-primary mb-6 animate-[fadeInUp_1s_ease-out]">
+        <h1 className="font-serif text-5xl md:text-4xl sm:text-3xl font-bold text-primary animate-[fadeInUp_1s_ease-out]">
           <span className="block mb-2">
-            {couple.groom.fullName}
+            {couple.groom.firstName}
             <span className="text-3xl md:text-2xl sm:text-xl text-muted-foreground ml-2">
               ({couple.groom.englishName})
             </span>
@@ -55,17 +58,17 @@ export default function HeroSection() {
             &
           </span>
           <span className="block mt-2">
-            {couple.bride.fullName}
+            {couple.bride.firstName}
             <span className="text-3xl md:text-2xl sm:text-xl text-muted-foreground ml-2">
               ({couple.bride.englishName})
             </span>
           </span>
         </h1>
 
-        {/* Wedding Date */}
-        <p className="font-serif text-2xl md:text-xl text-foreground italic mt-8 animate-[fadeInUp_1s_ease-out] [animation-delay:200ms]">
-          {dates.mainWedding.dateDisplay}
-        </p>
+        {/* Quote */}
+        {/* <p className="mt-6 font-pinyon text-3xl md:text-2xl sm:text-xl text-muted-foreground animate-[fadeInUp_1.2s_ease-out]"> */}
+        {/*   Bình yên là khi có nhau */}
+        {/* </p> */}
       </div>
     </section>
   );

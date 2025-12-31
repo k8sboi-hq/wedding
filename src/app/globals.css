@@ -115,6 +115,34 @@
   }
 }
 
+@keyframes fall {
+  0% {
+    transform: translateY(-10%) translateX(0);
+  }
+  100% {
+    transform: translateY(110vh) translateX(0);
+  }
+}
+
+@keyframes sway {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(40px);
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
 :root {
   --radius: 0.625rem;
   --background: #fef9f3;

@@ -153,34 +153,62 @@ export default function DetailsSection({ partyFilter }: DetailsSectionProps) {
             </div>
           </div>
         </div>
-        <div
-          className={`grid ${showFirstParty && showSecondParty ? "md:grid-cols-2" : "md:grid-cols-1 max-w-2xl"} gap-8 mx-auto ${showFirstParty && showSecondParty ? "max-w-5xl" : ""}`}
-        >
-          {/* First Party */}
-          {showFirstParty && (
-            <DetailCard
-              title="Tiệc Nhà Gái"
-              date={dates.firstParty.dateDisplay}
-              receptionTime={dates.firstParty.receptionTime}
-              dinnerTime={dates.firstParty.dinnerTime}
-              venueName={venues.francisHoi.name}
-              venueAddress={venues.francisHoi.address}
-              venueCity={venues.francisHoi.city}
-            />
-          )}
 
-          {/* Second Party */}
-          {showSecondParty && (
-            <DetailCard
-              title="Tiệc Nhà Trai"
-              date={dates.secondParty.dateDisplay}
-              receptionTime={dates.secondParty.receptionTime}
-              dinnerTime={dates.secondParty.dinnerTime}
-              venueName={venues.gardenPlaza.name}
-              venueAddress={`${venues.gardenPlaza.address}, ${venues.gardenPlaza.ward}`}
-              venueCity={venues.gardenPlaza.city}
-            />
-          )}
+        {/* Decorative divider */}
+        <div className="flex items-center justify-center gap-4 my-16">
+          <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+          <span className="text-primary/50 text-3xl">❀</span>
+          <div className="h-px w-24 bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
+        </div>
+
+        {/* Celebration Cards Section */}
+        <div id="celebration-cards" className="relative">
+          {/* Section introduction */}
+          <div className="text-center mb-10">
+            <h3 className="font-pinyon text-3xl md:text-4xl text-primary mb-3">
+              Chi Tiết Tiệc Mừng
+            </h3>
+            <div className="flex items-center justify-center gap-3 mb-2">
+              <div className="h-px w-12 bg-accent/40" />
+              <span className="text-accent/60 text-lg">✦</span>
+              <div className="h-px w-12 bg-accent/40" />
+            </div>
+          </div>
+
+          {/* Cards Grid */}
+          <div
+            className={`grid ${showFirstParty && showSecondParty ? "md:grid-cols-2" : "md:grid-cols-1 max-w-2xl"} gap-10 mx-auto ${showFirstParty && showSecondParty ? "max-w-5xl" : ""}`}
+          >
+            {/* First Party */}
+            {showFirstParty && (
+              <div className="animate-[fadeInUp_0.8s_ease-out]">
+                <DetailCard
+                  title="Tiệc Nhà Gái"
+                  date={dates.firstParty.dateDisplay}
+                  receptionTime={dates.firstParty.receptionTime}
+                  dinnerTime={dates.firstParty.dinnerTime}
+                  venueName={venues.francisHoi.name}
+                  venueAddress={venues.francisHoi.address}
+                  venueCity={venues.francisHoi.city}
+                />
+              </div>
+            )}
+
+            {/* Second Party */}
+            {showSecondParty && (
+              <div className="animate-[fadeInUp_1s_ease-out]">
+                <DetailCard
+                  title="Tiệc Nhà Trai"
+                  date={dates.secondParty.dateDisplay}
+                  receptionTime={dates.secondParty.receptionTime}
+                  dinnerTime={dates.secondParty.dinnerTime}
+                  venueName={venues.gardenPlaza.name}
+                  venueAddress={`${venues.gardenPlaza.address}, ${venues.gardenPlaza.ward}`}
+                  venueCity={venues.gardenPlaza.city}
+                />
+              </div>
+            )}
+          </div>
         </div>
       </div>
     </section>

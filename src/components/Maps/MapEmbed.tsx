@@ -6,7 +6,7 @@ interface MapEmbedProps {
 
 export default function MapEmbed({ embedUrl, title, height = "450px" }: MapEmbedProps) {
   return (
-    <div className="relative w-full rounded-xl overflow-hidden shadow-lg" style={{ height }}>
+    <div className="relative w-full rounded-xl overflow-hidden shadow-2xl border-4 border-white" style={{ height }}>
       <iframe
         src={embedUrl}
         width="100%"
@@ -16,6 +16,7 @@ export default function MapEmbed({ embedUrl, title, height = "450px" }: MapEmbed
         loading="lazy"
         referrerPolicy="no-referrer-when-downgrade"
         title={title}
+        className="rounded-lg"
       />
     </div>
   );

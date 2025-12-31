@@ -2,6 +2,7 @@ import Image from "next/image";
 import FloatingEmojis from "./FloatingEmojis";
 import { WEDDING_DATA } from "@/lib/constants";
 import { SVG_PATTERNS } from "@/lib/svgPatterns";
+import WeddingRingSVG from "./svgWeddingRing";
 
 export default function HeroSection() {
   const { couple, dates } = WEDDING_DATA;
@@ -54,8 +55,8 @@ export default function HeroSection() {
               ({couple.groom.englishName})
             </span>
           </span>
-          <span className="block text-accent text-6xl md:text-5xl sm:text-4xl my-4">
-            &
+          <span className="block my-6">
+            <WeddingRingSVG className="w-24 h-24 md:w-20 md:h-20 sm:w-16 sm:h-16 mx-auto animate-[fadeIn_1.5s_ease-out]" />
           </span>
           <span className="block mt-2">
             {couple.bride.firstName}

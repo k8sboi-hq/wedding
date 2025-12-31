@@ -1,6 +1,6 @@
 import { WEDDING_DATA } from "@/lib/constants";
 import DetailCard from "./DetailCard";
-import DoubleHappinessIcon from "@/components/Icons/DoubleHappinessIcon";
+import WeddingHouseIcon from "@/components/Icons/DoubleHappinessIcon";
 import { SVG_PATTERNS } from "@/lib/svgPatterns";
 import { PartyFilter, getCelebrations } from "@/lib/partyFilter";
 
@@ -13,10 +13,7 @@ export default function DetailsSection({ partyFilter }: DetailsSectionProps) {
   const { showFirstParty, showSecondParty } = getCelebrations(partyFilter);
 
   // Determine subtitle based on what's shown
-  const subtitle = showFirstParty && showSecondParty
-    ? "Join us for two beautiful celebrations"
-    : "Join us for our celebration";
-
+  const subtitle = "Cảm ơn bạn đã đến chung vui cùng chúng mình!";
   return (
     <section
       id="details"
@@ -28,7 +25,10 @@ export default function DetailsSection({ partyFilter }: DetailsSectionProps) {
       }}
     >
       {/* Orbiting decorations */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none" aria-hidden="true">
+      <div
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none"
+        aria-hidden="true"
+      >
         {[
           { emoji: "🌸", duration: "22s", radius: "280px", delay: "0s" },
           {
@@ -77,18 +77,89 @@ export default function DetailsSection({ partyFilter }: DetailsSectionProps) {
       >
         <div className="text-center mb-12">
           <h2 className="font-serif text-4xl md:text-3xl sm:text-2xl font-bold text-primary mb-4">
-            Celebration Details
+            Thông tin buổi lễ & tiệc
           </h2>
           <p className="font-serif text-xl md:text-lg text-muted-foreground italic">
-            {subtitle}
+            Cảm ơn bạn đã đến chung vui cùng chúng mình!
           </p>
         </div>
 
-        <div className={`grid ${showFirstParty && showSecondParty ? 'md:grid-cols-2' : 'md:grid-cols-1 max-w-2xl'} gap-8 mx-auto ${showFirstParty && showSecondParty ? 'max-w-5xl' : ''}`}>
+        {/* Main Wedding Note */}
+        <div
+          id="home-celebration"
+          className="mt-12 text-center max-w-3xl mx-auto"
+        >
+          <div className="relative bg-gradient-to-br from-white via-white to-accent/5 backdrop-blur-sm rounded-2xl shadow-2xl p-8 md:p-10 border-4 border-accent/30 overflow-hidden">
+            {/* Decorative corner flourishes */}
+            <div className="absolute top-3 left-3 w-12 h-12 border-l-2 border-t-2 border-primary/20 rounded-tl-lg" />
+            <div className="absolute top-3 right-3 w-12 h-12 border-r-2 border-t-2 border-primary/20 rounded-tr-lg" />
+            <div className="absolute bottom-3 left-3 w-12 h-12 border-l-2 border-b-2 border-primary/20 rounded-bl-lg" />
+            <div className="absolute bottom-3 right-3 w-12 h-12 border-r-2 border-b-2 border-primary/20 rounded-br-lg" />
+
+            {/* Decorative hearts in corners */}
+            <div className="absolute top-2 left-2 text-accent text-xl opacity-30">
+              ❤
+            </div>
+            <div className="absolute top-2 right-2 text-accent text-xl opacity-30">
+              ❤
+            </div>
+            <div className="absolute bottom-2 left-2 text-accent text-xl opacity-30">
+              ❤
+            </div>
+            <div className="absolute bottom-2 right-2 text-accent text-xl opacity-30">
+              ❤
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10">
+              {/* Icon with glow */}
+              <div className="flex justify-center mb-6">
+                <div className="relative">
+                  <div className="absolute inset-0 bg-accent/20 blur-2xl rounded-full" />
+                  <WeddingHouseIcon className="relative w-28 h-28 md:w-32 md:h-32 animate-[fadeIn_1.5s_ease-out]" />
+                </div>
+              </div>
+
+              {/* Decorative divider */}
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <div className="h-px w-16 bg-gradient-to-r from-transparent to-accent" />
+                <span className="text-accent text-2xl">✦</span>
+                <div className="h-px w-16 bg-gradient-to-l from-transparent to-accent" />
+              </div>
+
+              {/* Date - more prominent */}
+              <p className="font-pinyon text-4xl md:text-5xl text-primary font-bold mb-4 animate-[fadeInUp_1s_ease-out]">
+                {dates.mainWedding.dateDisplay}
+              </p>
+
+              {/* Decorative divider */}
+              <div className="flex items-center justify-center gap-2 mb-5">
+                <span className="text-primary/40">❋</span>
+                <div className="h-px w-12 bg-primary/30" />
+                <span className="text-primary/40">❋</span>
+                <div className="h-px w-12 bg-primary/30" />
+                <span className="text-primary/40">❋</span>
+              </div>
+
+              {/* Description */}
+              <p className="text-lg md:text-xl text-foreground font-medium mb-3 leading-relaxed">
+                {dates.mainWedding.description}
+              </p>
+
+              {/* Subtitle */}
+              <p className="text-base text-muted-foreground italic">
+                {dates.mainWedding.subtitle}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          className={`grid ${showFirstParty && showSecondParty ? "md:grid-cols-2" : "md:grid-cols-1 max-w-2xl"} gap-8 mx-auto ${showFirstParty && showSecondParty ? "max-w-5xl" : ""}`}
+        >
           {/* First Party */}
           {showFirstParty && (
             <DetailCard
-              title="Guest Celebration - Day 1"
+              title="Tiệc Nhà Gái"
               date={dates.firstParty.dateDisplay}
               receptionTime={dates.firstParty.receptionTime}
               dinnerTime={dates.firstParty.dinnerTime}
@@ -101,7 +172,7 @@ export default function DetailsSection({ partyFilter }: DetailsSectionProps) {
           {/* Second Party */}
           {showSecondParty && (
             <DetailCard
-              title="Guest Celebration - Day 2"
+              title="Tiệc Nhà Trai"
               date={dates.secondParty.dateDisplay}
               receptionTime={dates.secondParty.receptionTime}
               dinnerTime={dates.secondParty.dinnerTime}
@@ -110,24 +181,6 @@ export default function DetailsSection({ partyFilter }: DetailsSectionProps) {
               venueCity={venues.gardenPlaza.city}
             />
           )}
-        </div>
-
-        {/* Main Wedding Note */}
-        <div className="mt-12 text-center max-w-2xl mx-auto">
-          <div className="bg-white/80 backdrop-blur-sm rounded-xl shadow-lg p-6 border-2 border-primary/20">
-            <div className="flex justify-center mb-3">
-              <DoubleHappinessIcon className="w-20 h-20" />
-            </div>
-            <p className="font-serif text-lg text-primary font-semibold mb-2">
-              {dates.mainWedding.dateDisplay}
-            </p>
-            <p className="text-muted-foreground">
-              {dates.mainWedding.description}
-            </p>
-            <p className="text-sm text-muted-foreground italic mt-2">
-              {dates.mainWedding.subtitle}
-            </p>
-          </div>
         </div>
       </div>
     </section>

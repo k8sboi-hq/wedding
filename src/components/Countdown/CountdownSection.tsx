@@ -82,7 +82,7 @@ export default function CountdownSection() {
         {/* </div> */}
 
         <p className="font-serif text-xl md:text-lg text-muted-foreground italic mb-12">
-          Cảm ơn bạn đã đến chung vui cùng chúng mình!
+          Hẹn bạn vào ngày đặc biệt này!
         </p>
 
         {timeRemaining.isComplete ? (

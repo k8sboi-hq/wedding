@@ -15,10 +15,10 @@ export const WEDDING_DATA = {
     mainWedding: {
       date: "2026-01-20",
       dateDisplay: "Ngày 20 Tháng 1, 2026",
-      time: "18:00",
+      time: "10:00",
       timezone: "Asia/Ho_Chi_Minh",
-      description: "At our home in Ho Chi Minh City",
-      subtitle: "Ceremony with close family",
+      description: "Hôn lễ được cử hành tại TƯ GIA",
+      subtitle: "Thành phố Hồ Chí Minh, Việt Nam",
     },
     firstParty: {
       date: "2026-01-18",

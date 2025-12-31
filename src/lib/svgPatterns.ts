@@ -16,4 +16,7 @@ export const SVG_PATTERNS = {
 
   // Footer - Simple circles
   footerPattern: `url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200"><circle cx="200" cy="100" r="30" fill="%23ffd700" opacity="0.05"/><circle cx="1000" cy="100" r="30" fill="%23dc143c" opacity="0.05"/></svg>')`,
+
+  // Decorative Ampersand
+  decorativeAmpersand: `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" fill="none"><defs><linearGradient id="goldGrad" x1="0%25" y1="0%25" x2="100%25" y2="100%25"><stop offset="0%25" stop-color="%23ffd700"/><stop offset="50%25" stop-color="%23f4c430"/><stop offset="100%25" stop-color="%23ffd700"/></linearGradient></defs><path d="M 65 25 Q 55 15 45 25 Q 35 35 35 45 Q 35 55 45 60 Q 35 65 30 75 Q 25 85 35 92 Q 45 98 55 92 L 70 78 Q 75 73 78 75 L 82 80" stroke="url(%23goldGrad)" stroke-width="8" stroke-linecap="round" stroke-linejoin="round" fill="none"/><circle cx="45" cy="35" r="3" fill="%23dc143c" opacity="0.6"/><circle cx="40" cy="80" r="4" fill="%23dc143c" opacity="0.6"/><path d="M 48 50 Q 50 48 52 50" stroke="%23dc143c" stroke-width="1.5" fill="none" opacity="0.5"/></svg>`,
 } as const;

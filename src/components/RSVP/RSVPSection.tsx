@@ -25,6 +25,7 @@ export default function RSVPSection() {
   }, []);
   return (
     <section
+      id="rsvp"
       className="relative py-20 bg-gradient-to-br from-primary/5 via-accent/10 to-primary/5 overflow-hidden"
       style={{
         backgroundImage: SVG_PATTERNS.rsvpPattern,

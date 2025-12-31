@@ -10,6 +10,7 @@ export default function CountdownSection() {
 
   return (
     <section
+      id="countdown"
       className="relative py-20 bg-gradient-to-b from-background via-background to-accent/5 overflow-hidden"
       style={{
         backgroundImage: SVG_PATTERNS.countdownBamboo,

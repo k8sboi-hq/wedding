@@ -16,7 +16,7 @@ export default function MapsSection({ partyFilter }: MapsSectionProps) {
     : "Find your way to our celebration";
 
   return (
-    <section className="relative py-20 bg-gradient-to-b from-background to-primary/5 overflow-hidden">
+    <section id="location" className="relative py-20 bg-gradient-to-b from-background to-primary/5 overflow-hidden">
       {/* Orbiting decorations */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full pointer-events-none">
         {[

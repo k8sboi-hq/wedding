@@ -1,4 +1,5 @@
 import { Suspense } from "react";
+import Navigation from "@/components/Navigation/Navigation";
 import HeroSection from "@/components/Hero/HeroSection";
 import PhotoCarousel from "@/components/PhotoCarousel/PhotoCarousel";
 import CountdownSection from "@/components/Countdown/CountdownSection";
@@ -18,6 +19,7 @@ export default function Home() {
       >
         Skip to wedding details
       </a>
+      <Navigation />
       <main>
         <HeroSection />
         <PhotoCarousel />

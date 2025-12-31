@@ -23,6 +23,7 @@ export default function PhotoCarousel() {
 
   return (
     <section
+      id="photos"
       className="relative py-20 bg-gradient-to-br from-primary/3 via-accent/5 to-primary/3 overflow-hidden"
       style={{ backgroundImage: SVG_PATTERNS.carouselLotus, backgroundSize: 'cover', backgroundPosition: 'center' }}
     >

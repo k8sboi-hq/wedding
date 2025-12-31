@@ -8,7 +8,8 @@ export default function HeroSection() {
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-accent/10 to-primary/5"
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-br from-primary/5 via-accent/10 to-primary/5 pt-16"
       style={{
         backgroundImage: SVG_PATTERNS.heroRose,
         backgroundSize: "cover",

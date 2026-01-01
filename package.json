@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "rsync": "rsync -avz --progress --exclude 'node_modules' --exclude '.next' --exclude '.git' --exclude 'dist' --exclude 'build' ~/working/wedding-website/ docker-prod:/home/deployer/deployment/"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

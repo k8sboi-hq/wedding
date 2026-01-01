@@ -7,7 +7,7 @@ export function useMusicPlayer() {
   const [currentTrackIndex, setCurrentTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
-  const [isCollapsed, setIsCollapsed] = useState(true);
+  const [isCollapsed, setIsCollapsed] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
 
   const playlist = WEDDING_DATA.musicPlaylist;

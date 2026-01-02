@@ -7,7 +7,11 @@ export default function Footer() {
   return (
     <footer
       className="relative bg-gradient-to-b from-background via-primary/5 to-background py-20 overflow-hidden"
-      style={{ backgroundImage: SVG_PATTERNS.footerPattern, backgroundSize: 'cover', backgroundPosition: 'center' }}
+      style={{
+        backgroundImage: SVG_PATTERNS.footerPattern,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
     >
       {/* Decorative background elements */}
       <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 text-9xl opacity-5 text-accent">
@@ -31,10 +35,18 @@ export default function Footer() {
             <div className="absolute bottom-3 right-3 w-16 h-16 border-r-2 border-b-2 border-primary/20 rounded-br-lg" />
 
             {/* Heart decorations */}
-            <div className="absolute top-2 left-2 text-accent/30 text-xl">💝</div>
-            <div className="absolute top-2 right-2 text-accent/30 text-xl">💝</div>
-            <div className="absolute bottom-2 left-2 text-accent/30 text-xl">💝</div>
-            <div className="absolute bottom-2 right-2 text-accent/30 text-xl">💝</div>
+            <div className="absolute top-2 left-2 text-accent/30 text-xl">
+              💝
+            </div>
+            <div className="absolute top-2 right-2 text-accent/30 text-xl">
+              💝
+            </div>
+            <div className="absolute bottom-2 left-2 text-accent/30 text-xl">
+              💝
+            </div>
+            <div className="absolute bottom-2 right-2 text-accent/30 text-xl">
+              💝
+            </div>
 
             <div className="relative z-10 text-center">
               {/* Title */}
@@ -52,13 +64,17 @@ export default function Footer() {
               {/* Thank you message */}
               <div className="space-y-4 max-w-2xl mx-auto">
                 <p className="font-serif text-xl md:text-2xl text-foreground leading-relaxed">
-                  Chúng mình xin chân thành cảm ơn tất cả những lời chúc phước và món quà ý nghĩa
+                  Chúng mình xin chân thành cảm ơn tất cả những lời chúc phúc và
+                  món quà ý nghĩa
                 </p>
                 <p className="font-serif text-lg text-muted-foreground leading-relaxed">
-                  Mỗi lời chúc, mỗi món quà đều là nguồn động viên lớn lao giúp chúng mình bắt đầu hành trình mới với đầy niềm tin và hạnh phúc
+                  Mỗi lời chúc, mỗi món quà đều là nguồn động viên lớn lao giúp
+                  chúng mình bắt đầu hành trình mới với đầy niềm tin và hạnh
+                  phúc
                 </p>
                 <p className="font-serif text-base text-muted-foreground italic mt-6">
-                  Sự hiện diện và tình cảm của quý khách là món quà vô giá nhất 🙏
+                  Sự hiện diện và tình cảm của quý khách là món quà vô giá nhất
+                  🙏
                 </p>
               </div>
 
@@ -107,7 +123,8 @@ export default function Footer() {
             Made with ❤️ for our special day
           </p>
           <p className="text-xs text-muted-foreground/70 mt-2">
-            © 2025 {couple.groom.firstName} & {couple.bride.firstName}. All Rights Reserved
+            © 2025 {couple.groom.firstName} & {couple.bride.firstName}. All
+            Rights Reserved
           </p>
         </div>
       </div>

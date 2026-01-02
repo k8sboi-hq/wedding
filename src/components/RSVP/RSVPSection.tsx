@@ -60,7 +60,8 @@ export default function RSVPSection() {
             Sự hiện diện của bạn là món quà quý giá nhất với chúng mình
           </p>
           <p className="font-serif text-base md:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Nếu không thể đến tham dự trực tiếp nhưng vẫn muốn gửi lời chúc phước, chúng mình sẽ vô cùng cảm động
+            Nếu không thể đến tham dự trực tiếp nhưng vẫn muốn gửi lời chúc
+            phúc, chúng mình sẽ vô cùng cảm động
           </p>
         </div>
 
@@ -73,10 +74,18 @@ export default function RSVPSection() {
             <div className="absolute bottom-3 right-3 w-16 h-16 border-r-2 border-b-2 border-primary/20 rounded-br-lg z-30" />
 
             {/* Decorative hearts in corners */}
-            <div className="absolute top-2 left-2 text-accent/30 text-xl z-30">💌</div>
-            <div className="absolute top-2 right-2 text-accent/30 text-xl z-30">💌</div>
-            <div className="absolute bottom-2 left-2 text-accent/30 text-xl z-30">💌</div>
-            <div className="absolute bottom-2 right-2 text-accent/30 text-xl z-30">💌</div>
+            <div className="absolute top-2 left-2 text-accent/30 text-xl z-30">
+              💌
+            </div>
+            <div className="absolute top-2 right-2 text-accent/30 text-xl z-30">
+              💌
+            </div>
+            <div className="absolute bottom-2 left-2 text-accent/30 text-xl z-30">
+              💌
+            </div>
+            <div className="absolute bottom-2 right-2 text-accent/30 text-xl z-30">
+              💌
+            </div>
             {/* Falling flowers effect */}
             <div className="absolute inset-0 pointer-events-none z-20">
               {[
@@ -195,9 +204,13 @@ export default function RSVPSection() {
                   backgroundSize: "200% 100%",
                 }}
               >
-                <span className="text-2xl group-hover:scale-110 transition-transform">💝</span>
-                <span>{showQRCode ? "Ẩn Mã QR" : "Gửi Lời Chúc Phước"}</span>
-                <span className="text-2xl group-hover:scale-110 transition-transform">💝</span>
+                <span className="text-2xl group-hover:scale-110 transition-transform">
+                  💝
+                </span>
+                <span>{showQRCode ? "Ẩn Mã QR" : "Gửi Lời Chúc Phúc"}</span>
+                <span className="text-2xl group-hover:scale-110 transition-transform">
+                  💝
+                </span>
               </button>
 
               {/* Subtle note below button */}
@@ -220,10 +233,18 @@ export default function RSVPSection() {
               <div className="absolute bottom-3 right-3 w-16 h-16 border-r-2 border-b-2 border-primary/20 rounded-br-lg" />
 
               {/* Sparkle decorations */}
-              <div className="absolute top-2 left-2 text-accent/30 text-xl">✨</div>
-              <div className="absolute top-2 right-2 text-accent/30 text-xl">✨</div>
-              <div className="absolute bottom-2 left-2 text-accent/30 text-xl">✨</div>
-              <div className="absolute bottom-2 right-2 text-accent/30 text-xl">✨</div>
+              <div className="absolute top-2 left-2 text-accent/30 text-xl">
+                ✨
+              </div>
+              <div className="absolute top-2 right-2 text-accent/30 text-xl">
+                ✨
+              </div>
+              <div className="absolute bottom-2 left-2 text-accent/30 text-xl">
+                ✨
+              </div>
+              <div className="absolute bottom-2 right-2 text-accent/30 text-xl">
+                ✨
+              </div>
 
               <div className="relative z-10">
                 {/* Title */}
@@ -294,7 +315,7 @@ export default function RSVPSection() {
                   {/* Gratitude message */}
                   <div className="text-center space-y-2 max-w-md">
                     <p className="font-serif text-lg text-muted-foreground italic">
-                      Mỗi lời chúc phước đều làm ấm lòng chúng mình
+                      Mỗi lời chúc phúc đều làm ấm lòng chúng mình
                     </p>
                     <p className="text-sm text-muted-foreground/80">
                       Cảm ơn bạn đã dành thời gian và tấm lòng 💝
@@ -316,7 +337,8 @@ export default function RSVPSection() {
           </div>
 
           <p className="font-serif text-lg text-muted-foreground italic max-w-2xl mx-auto">
-            Tình yêu và sự ủng hộ của bạn là món quà quý giá nhất chúng mình có thể nhận được 💝
+            Tình yêu và sự ủng hộ của bạn là món quà quý giá nhất chúng mình có
+            thể nhận được 💝
           </p>
         </div>
       </div>

@@ -15,8 +15,9 @@ services:
       - "8080:80"
     volumes:
       # Mount for live development (optional - comment out for production)
-      - ./index.html:/srv/index.html:ro
-      - ./assets:/srv/assets:ro
+      - ./out/:/srv/:ro
+      # - ./index.html:/srv/index.html:ro
+      # - ./assets:/srv/assets:ro
       # Mount for Caddy data persistence (TLS certificates, etc.)
       - caddy_data:/data
       - caddy_config:/config

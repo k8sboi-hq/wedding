@@ -81,6 +81,21 @@ export const WEDDING_DATA = {
   ],
   musicPlaylist: [
     {
+      title: "Make You Mine",
+      artist: "PUBLIC",
+      file: "/assets/make-you-mine.mp3",
+    },
+    {
+      title: "The One",
+      artist: "Kodaline",
+      file: "/assets/the-one.mp3",
+    },
+    {
+      title: "Có em đời bỗng vui",
+      artist: "Chillies",
+      file: "/assets/co-em-doi-bong-vui.mp3",
+    },
+    {
       title: "Hold My Hand",
       artist: "Jess Glynne",
       file: "/assets/hold-my-hand.mp3",
@@ -99,16 +114,6 @@ export const WEDDING_DATA = {
       title: "A Thousand Years",
       artist: "Christina Perri",
       file: "/assets/a-thousand-years.mp3",
-    },
-    {
-      title: "Photograph",
-      artist: "Ed Sheeran",
-      file: "/assets/photograph.mp3",
-    },
-    {
-      title: "Thinking Out Loud",
-      artist: "Ed Sheeran",
-      file: "/assets/thinking-out-loud.mp3",
     },
     {
       title: "All of Me",

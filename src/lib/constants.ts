@@ -49,7 +49,7 @@ export const WEDDING_DATA = {
       city: "Tp. Hồ Chí Minh, Việt Nam",
       mapUrl: "https://maps.app.goo.gl/Edi1Vw3ed3ziP7bJ7",
       embedUrl:
-        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.239596547837!2d106.67544937583186!3d10.797663589351877!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528d4a7c59c91%3A0x6b38b38b38b38b38!2sGarden%20Plaza%20Saigon!5e0!3m2!1sen!2s!4v1234567890123!5m2!1sen!2s",
+        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.1589304134272!2d106.6679551!3d10.799136899999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x317528d5ff3c8957%3A0x8b4929466e979253!2sGarden%20Plaza%20Saigon%20(Formerly%20PARKROYAL%20Saigon)!5e0!3m2!1sen!2s!4v1767366919973!5m2!1sen!2s",
     },
   },
   photos: [

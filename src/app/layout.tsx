@@ -75,14 +75,14 @@ export const metadata: Metadata = {
       "Join us for the wedding celebration of Huỳnh Đăng Khoa (Daniel) and Lưu Nguyễn Hồng Sương (Rachel) on January 20, 2026. Guest celebrations on January 18 & 25. RSVP today!",
     images: [
       {
-        url: "/assets/og-image.jpg",
+        url: "/assets/og-image-0355.jpg",
         width: 1200,
         height: 630,
         alt: "Khoa & Sương Wedding Photo",
         type: "image/jpeg",
       },
       {
-        url: "/assets/og-image.webp",
+        url: "/assets/og-image-0355.webp",
         width: 1200,
         height: 630,
         alt: "Khoa & Sương Wedding Photo",

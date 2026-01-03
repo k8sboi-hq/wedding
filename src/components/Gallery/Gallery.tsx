@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { WEDDING_DATA } from "@/lib/constants";
 import { SVG_PATTERNS } from "@/lib/svgPatterns";
-import GalleryGrid from "./GalleryGrid";
+import DesktopCarousel from "./DesktopCarousel";
 import MobileCarousel from "./MobileCarousel";
 import Lightbox from "./Lightbox";
 import FloatingEmojis from "../Hero/FloatingEmojis";
@@ -53,9 +53,9 @@ export default function Gallery() {
       {/* Floating Decorative Elements */}
       <FloatingEmojis />
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
-        <div className="text-center mb-12">
+      {/* Section Header */}
+      <div className="container mx-auto px-4 relative z-10 mb-12">
+        <div className="text-center">
           <h2 className="font-serif text-4xl sm:text-5xl text-primary mb-4">
             Our Journey Together
           </h2>
@@ -65,33 +65,33 @@ export default function Gallery() {
             love from the first date to forever.
           </p>
         </div>
-
-        {/* Mobile Carousel - visible only on small screens */}
-        <div className="md:hidden">
-          <MobileCarousel
-            photos={WEDDING_DATA.photos}
-            onPhotoClick={handlePhotoClick}
-          />
-        </div>
-
-        {/* Desktop/Tablet Grid - hidden on small screens */}
-        <div className="hidden md:block">
-          <GalleryGrid
-            photos={WEDDING_DATA.photos}
-            onPhotoClick={handlePhotoClick}
-          />
-        </div>
-
-        {/* Lightbox Modal */}
-        {isLightboxOpen && selectedPhotoIndex !== null && (
-          <Lightbox
-            photos={WEDDING_DATA.photos}
-            currentIndex={selectedPhotoIndex}
-            onClose={handleCloseLightbox}
-            onNavigate={handleNavigate}
-          />
-        )}
       </div>
+
+      {/* Mobile Carousel - visible only on small screens */}
+      <div className="md:hidden container mx-auto px-4 relative z-10">
+        <MobileCarousel
+          photos={WEDDING_DATA.photos}
+          onPhotoClick={handlePhotoClick}
+        />
+      </div>
+
+      {/* Desktop/Tablet Carousel - hidden on small screens, full width */}
+      <div className="hidden md:block container mx-auto relative z-10">
+        <DesktopCarousel
+          photos={WEDDING_DATA.photos}
+          onPhotoClick={handlePhotoClick}
+        />
+      </div>
+
+      {/* Lightbox Modal */}
+      {isLightboxOpen && selectedPhotoIndex !== null && (
+        <Lightbox
+          photos={WEDDING_DATA.photos}
+          currentIndex={selectedPhotoIndex}
+          onClose={handleCloseLightbox}
+          onNavigate={handleNavigate}
+        />
+      )}
     </section>
   );
 }

@@ -10,7 +10,10 @@ interface MobileCarouselProps {
   onPhotoClick: (index: number) => void;
 }
 
-export default function MobileCarousel({ photos, onPhotoClick }: MobileCarouselProps) {
+export default function MobileCarousel({
+  photos,
+  onPhotoClick,
+}: MobileCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState<number | null>(null);
   const [touchEnd, setTouchEnd] = useState<number | null>(null);
@@ -155,7 +158,7 @@ export default function MobileCarousel({ photos, onPhotoClick }: MobileCarouselP
       {/* Navigation Buttons */}
       <button
         onClick={goToPrev}
-        className="absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-primary rounded-full p-2 shadow-lg transition-all hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
+        className="cursor-pointer absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-primary rounded-full p-2 shadow-lg transition-all hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
         aria-label="Previous photo"
       >
         <ChevronLeft size={24} />
@@ -163,14 +166,18 @@ export default function MobileCarousel({ photos, onPhotoClick }: MobileCarouselP
 
       <button
         onClick={goToNext}
-        className="absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-primary rounded-full p-2 shadow-lg transition-all hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
+        className="cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-primary rounded-full p-2 shadow-lg transition-all hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
         aria-label="Next photo"
       >
         <ChevronRight size={24} />
       </button>
 
       {/* Dot Navigation */}
-      <div className="flex justify-center gap-2 mt-4" role="tablist" aria-label="Photo navigation">
+      <div
+        className="flex justify-center gap-2 mt-4"
+        role="tablist"
+        aria-label="Photo navigation"
+      >
         {photos.map((_, index) => (
           <button
             key={index}

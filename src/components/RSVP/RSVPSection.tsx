@@ -224,7 +224,10 @@ export default function RSVPSection() {
         </div>
 
         {showQRCode && (
-          <div className="max-w-3xl mx-auto mt-10 animate-in fade-in slide-in-from-top-4 duration-500">
+          <div
+            id="payment-detail"
+            className="max-w-3xl mx-auto mt-10 animate-in fade-in slide-in-from-top-4 duration-500"
+          >
             <div className="relative bg-gradient-to-br from-white via-white to-accent/5 backdrop-blur-sm rounded-2xl border-4 border-accent/30 shadow-2xl p-8 md:p-12 overflow-hidden">
               {/* Decorative corner flourishes */}
               <div className="absolute top-3 left-3 w-16 h-16 border-l-2 border-t-2 border-primary/20 rounded-tl-lg" />
@@ -262,52 +265,99 @@ export default function RSVPSection() {
                 </div>
 
                 <div className="flex flex-col items-center gap-6">
-                  {/* QR Code placeholder with elegant styling */}
-                  <div className="relative">
-                    <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-2xl blur-lg" />
-                    <div className="relative w-72 h-72 bg-white rounded-2xl border-4 border-accent/40 shadow-2xl flex items-center justify-center p-6">
-                      <div className="text-center">
-                        <div className="mb-4">
-                          <span className="text-6xl">💳</span>
+                  {/* QR Codes - Both displayed side by side on desktop, stacked on mobile */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+                    {/* Groom QR Code */}
+                    <div className="flex flex-col items-center gap-4">
+                      <div className="relative">
+                        <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-2xl blur-lg" />
+                        <div className="relative bg-white rounded-2xl border-4 border-accent/40 shadow-2xl overflow-hidden">
+                          <Image
+                            src="/assets/my-bank-qr.jpg"
+                            alt="Groom Bank QR Code"
+                            width={300}
+                            height={300}
+                            className="w-full h-auto"
+                          />
                         </div>
-                        <p className="text-primary font-semibold text-base mb-2">
-                          Mã QR Chuyển Khoản
-                        </p>
-                        <p className="text-xs text-muted-foreground">
-                          Quét mã để gửi lời chúc
-                        </p>
+                      </div>
+                      {/* Bank details for Groom */}
+                      <div className="w-full bg-accent/5 rounded-xl p-6 border border-accent/20">
+                        <div className="space-y-3 text-center">
+                          <div>
+                            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
+                              Ngân Hàng
+                            </p>
+                            <p className="font-serif text-lg text-foreground font-semibold">
+                              Techcombank
+                            </p>
+                          </div>
+                          <div className="h-px bg-accent/20" />
+                          <div>
+                            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
+                              Số Tài Khoản
+                            </p>
+                            <p className="font-mono text-lg text-foreground font-semibold">
+                              1919031996
+                            </p>
+                          </div>
+                          <div className="h-px bg-accent/20" />
+                          <div>
+                            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
+                              Chủ Tài Khoản
+                            </p>
+                            <p className="font-serif text-lg text-foreground font-semibold">
+                              HUYNH DANG KHOA
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Bank details */}
-                  <div className="w-full max-w-md bg-accent/5 rounded-xl p-6 border border-accent/20">
-                    <div className="space-y-3 text-center">
-                      <div>
-                        <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
-                          Ngân Hàng
-                        </p>
-                        <p className="font-serif text-lg text-foreground font-semibold">
-                          [Tên Ngân Hàng]
-                        </p>
+                    {/* Bride QR Code */}
+                    <div className="flex flex-col items-center gap-4">
+                      <div className="relative">
+                        <div className="absolute -inset-4 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-2xl blur-lg" />
+                        <div className="relative bg-white rounded-2xl border-4 border-accent/40 shadow-2xl overflow-hidden">
+                          <Image
+                            src="/assets/wife-bank-qr.jpg"
+                            alt="Bride Bank QR Code"
+                            width={300}
+                            height={300}
+                            className="w-full h-auto"
+                          />
+                        </div>
                       </div>
-                      <div className="h-px bg-accent/20" />
-                      <div>
-                        <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
-                          Số Tài Khoản
-                        </p>
-                        <p className="font-mono text-lg text-foreground font-semibold">
-                          [Số Tài Khoản]
-                        </p>
-                      </div>
-                      <div className="h-px bg-accent/20" />
-                      <div>
-                        <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
-                          Chủ Tài Khoản
-                        </p>
-                        <p className="font-serif text-lg text-foreground font-semibold">
-                          [Tên Chủ Tài Khoản]
-                        </p>
+                      {/* Bank details for Bride */}
+                      <div className="w-full bg-accent/5 rounded-xl p-6 border border-accent/20">
+                        <div className="space-y-3 text-center">
+                          <div>
+                            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
+                              Ngân Hàng
+                            </p>
+                            <p className="font-serif text-lg text-foreground font-semibold">
+                              Sacombank
+                            </p>
+                          </div>
+                          <div className="h-px bg-accent/20" />
+                          <div>
+                            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
+                              Số Tài Khoản
+                            </p>
+                            <p className="font-mono text-lg text-foreground font-semibold">
+                              0501 2906 5394
+                            </p>
+                          </div>
+                          <div className="h-px bg-accent/20" />
+                          <div>
+                            <p className="text-xs text-muted-foreground uppercase tracking-widest mb-1">
+                              Chủ Tài Khoản
+                            </p>
+                            <p className="font-serif text-lg text-foreground font-semibold">
+                              LUU NGUYEN HONG SUONG
+                            </p>
+                          </div>
+                        </div>
                       </div>
                     </div>
                   </div>

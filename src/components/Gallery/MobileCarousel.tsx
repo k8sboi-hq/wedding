@@ -86,7 +86,7 @@ export default function MobileCarousel({
 
   return (
     <div
-      className="relative"
+      className="relative w-full"
       onMouseEnter={() => setIsAutoPlaying(false)}
       onMouseLeave={() => setIsAutoPlaying(true)}
       onTouchStart={onTouchStart}
@@ -101,8 +101,8 @@ export default function MobileCarousel({
         Photo {currentIndex + 1} of {photos.length}: {currentPhoto.caption}
       </div>
 
-      {/* Carousel Container */}
-      <div className="overflow-hidden rounded-xl shadow-2xl">
+      {/* Carousel Container - Full Width */}
+      <div className="overflow-hidden shadow-2xl">
         <div
           className="flex transition-transform duration-500 ease-in-out"
           style={{ transform: `translateX(-${currentIndex * 100}%)` }}
@@ -111,17 +111,17 @@ export default function MobileCarousel({
             <div
               key={`${photo.src}-${index}`}
               className="min-w-full relative"
-              style={{ paddingBottom: "75%" }} // 4:3 aspect ratio for mobile
+              style={{ paddingBottom: "100%" }} // Square aspect ratio for full-width mobile
             >
               {/* Blurred Background */}
               <div
-                className="absolute inset-0 bg-cover bg-center blur-xl scale-110"
+                className="absolute inset-0 bg-cover bg-center blur-2xl scale-110"
                 style={{ backgroundImage: `url(${photo.src})` }}
               />
 
               {/* Main Photo */}
               <div
-                className="absolute inset-0 flex items-center justify-center p-4 cursor-pointer"
+                className="absolute inset-0 flex items-center justify-center cursor-pointer"
                 onClick={() => onPhotoClick(index)}
                 role="button"
                 tabIndex={index === currentIndex ? 0 : -1}
@@ -138,17 +138,17 @@ export default function MobileCarousel({
                   alt={photo.alt}
                   fill
                   sizes="100vw"
-                  className="object-contain"
+                  className="object-cover"
                   loading={index === 0 ? "eager" : "lazy"}
                 />
               </div>
 
               {/* Caption Overlay */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent p-4">
-                <h3 className="font-serif text-white text-lg mb-1">
+              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 sm:p-6">
+                <h3 className="font-serif text-white text-xl sm:text-2xl mb-1">
                   {photo.caption}
                 </h3>
-                <p className="text-white/80 text-sm">{photo.location}</p>
+                <p className="text-white/90 text-base sm:text-lg">{photo.location}</p>
               </div>
             </div>
           ))}
@@ -158,23 +158,23 @@ export default function MobileCarousel({
       {/* Navigation Buttons */}
       <button
         onClick={goToPrev}
-        className="cursor-pointer absolute left-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-primary rounded-full p-2 shadow-lg transition-all hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
+        className="cursor-pointer absolute left-3 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-primary rounded-full p-3 shadow-xl transition-all hover:scale-110 min-w-[48px] min-h-[48px] flex items-center justify-center"
         aria-label="Previous photo"
       >
-        <ChevronLeft size={24} />
+        <ChevronLeft size={26} />
       </button>
 
       <button
         onClick={goToNext}
-        className="cursor-pointer absolute right-2 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-primary rounded-full p-2 shadow-lg transition-all hover:scale-110 min-w-[44px] min-h-[44px] flex items-center justify-center"
+        className="cursor-pointer absolute right-3 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-primary rounded-full p-3 shadow-xl transition-all hover:scale-110 min-w-[48px] min-h-[48px] flex items-center justify-center"
         aria-label="Next photo"
       >
-        <ChevronRight size={24} />
+        <ChevronRight size={26} />
       </button>
 
       {/* Dot Navigation */}
       <div
-        className="flex justify-center gap-2 mt-4"
+        className="flex justify-center gap-2 mt-6 px-4"
         role="tablist"
         aria-label="Photo navigation"
       >
@@ -195,7 +195,7 @@ export default function MobileCarousel({
       </div>
 
       {/* Photo Counter */}
-      <div className="text-center mt-2 text-sm text-text-light">
+      <div className="text-center mt-3 px-4 text-sm text-text-light">
         {currentIndex + 1} / {photos.length}
       </div>
     </div>

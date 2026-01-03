@@ -67,8 +67,8 @@ export default function Gallery() {
         </div>
       </div>
 
-      {/* Mobile Carousel - visible only on small screens */}
-      <div className="md:hidden container mx-auto px-4 relative z-10">
+      {/* Mobile Carousel - visible only on small screens, full width */}
+      <div className="md:hidden relative z-10">
         <MobileCarousel
           photos={WEDDING_DATA.photos}
           onPhotoClick={handlePhotoClick}

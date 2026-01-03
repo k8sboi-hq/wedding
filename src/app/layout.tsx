@@ -75,10 +75,18 @@ export const metadata: Metadata = {
       "Join us for the wedding celebration of Huỳnh Đăng Khoa (Daniel) and Lưu Nguyễn Hồng Sương (Rachel) on January 20, 2026. Guest celebrations on January 18 & 25. RSVP today!",
     images: [
       {
-        url: "https://media.khoahuynh.dev/api/assets/30653133-ef40-4726-8930-086f7e729cfb/thumbnail?key=Fvo34aAJDzQbU2mJz957aGac82ZJAaFR_SHOCY11FunuysEp5heU7iKR0rcdtY1hvHI&size=preview&c=6gcGBQK0%2FWeGyIxCVkYmtwWlWvl4",
+        url: "/assets/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Khoa & Sương's Wedding Invitation",
+        alt: "Khoa & Sương Wedding Photo",
+        type: "image/jpeg",
+      },
+      {
+        url: "/assets/og-image.webp",
+        width: 1200,
+        height: 630,
+        alt: "Khoa & Sương Wedding Photo",
+        type: "image/webp",
       },
     ],
     locale: "en_US",
@@ -89,9 +97,7 @@ export const metadata: Metadata = {
     title: "Khoa & Sương's Wedding - January 20, 2026",
     description:
       "Join us for the wedding celebration of Huỳnh Đăng Khoa (Daniel) and Lưu Nguyễn Hồng Sương (Rachel) on January 20, 2026. Guest celebrations on January 18 & 25. RSVP today!",
-    images: [
-      "https://media.khoahuynh.dev/api/assets/30653133-ef40-4726-8930-086f7e729cfb/thumbnail?key=Fvo34aAJDzQbU2mJz957aGac82ZJAaFR_SHOCY11FunuysEp5heU7iKR0rcdtY1hvHI&size=preview&c=6gcGBQK0%2FWeGyIxCVkYmtwWlWvl4",
-    ],
+    images: ["/assets/og-image.jpg"],
   },
   robots: {
     index: true,

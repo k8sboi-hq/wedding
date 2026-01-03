@@ -59,7 +59,8 @@ export const WEDDING_DATA = {
       caption: "Our Beautiful Journey Together",
       date: "2024-03-15",
       location: "Vũng Tàu Beach",
-      story: "Our first trip together, where we discovered our shared love of sunsets and Vietnamese coffee",
+      story:
+        "Our first trip together, where we discovered our shared love of sunsets and Vietnamese coffee",
       category: "dating",
     },
     {
@@ -100,13 +101,13 @@ export const WEDDING_DATA = {
     },
     // Placeholder photos - to be replaced with actual photos
     {
-      src: "/assets/photo-placeholder-6.webp",
-      alt: "Khoa and Sương Photo 6",
-      caption: "Placeholder Photo 6",
-      date: "2024-04-01",
+      src: "https://media.khoahuynh.dev/api/assets/ee80fcad-3727-4bc3-b6eb-b39364e1cdff/thumbnail?key=9ZnhSpkDr9_aGTvCqACWnCK2c2YVc35lciWK1ozJinrAU2cF3IdLmfGaJFKgT8YEWzA&size=preview&c=p%2BgJJQISmj5p9me3epd5aLhwcqCV",
+      alt: "Khoa and Sương pre-wedding",
+      caption: "With you in my hand",
+      date: "2025-11-18",
       location: "To be updated",
       story: "Placeholder story - will be updated with actual photo",
-      category: "dating",
+      category: "pre-wedding",
     },
     {
       src: "/assets/photo-placeholder-7.webp",

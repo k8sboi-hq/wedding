@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Navigation from "@/components/Navigation/Navigation";
 import HeroSection from "@/components/Hero/HeroSection";
-import PhotoCarousel from "@/components/PhotoCarousel/PhotoCarousel";
+import Gallery from "@/components/Gallery/Gallery";
 import CountdownSection from "@/components/Countdown/CountdownSection";
 import RSVPSection from "@/components/RSVP/RSVPSection";
 import MusicPlayer from "@/components/MusicPlayer/MusicPlayer";
@@ -22,7 +22,7 @@ export default function Home() {
       <Navigation />
       <main>
         <HeroSection />
-        <PhotoCarousel />
+        <Gallery />
         <CountdownSection />
         <Suspense
           fallback={

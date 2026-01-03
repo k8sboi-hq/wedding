@@ -5,7 +5,7 @@ import HeartIcon from "./HeartIcon";
 
 const navLinks = [
   { href: "#home", label: "Home", icon: "🏠" },
-  { href: "#photos", label: "Photos", icon: "📸" },
+  { href: "#gallery", label: "Photos", icon: "📸" },
   { href: "#countdown", label: "Countdown", icon: "⏰" },
   { href: "#details", label: "Details", icon: "📅" },
   { href: "#location", label: "Location", icon: "📍" },
@@ -23,7 +23,7 @@ export default function Navigation() {
       setIsScrolled(window.scrollY > 100);
 
       // Track active section
-      const sections = ["home", "photos", "countdown", "details", "location", "rsvp"];
+      const sections = ["home", "gallery", "countdown", "details", "location", "rsvp"];
 
       for (const section of sections) {
         const element = document.getElementById(section);

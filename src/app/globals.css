@@ -32,7 +32,7 @@
   --color-primary-dark: #c41e3a;
   --color-gold: #ffd700;
   --color-text-dark: #2c2c2c;
-  --color-text-light: #666666;
+  --color-text-light: #5a5a5a; /* Updated for WCAG AA compliance (4.5:1 contrast ratio) */
   --color-bg-light: #fef9f3;
   --color-bg-lighter: #fff5eb;
 
@@ -231,5 +231,32 @@
 
   ::-webkit-scrollbar-thumb:hover {
     background: var(--secondary);
+  }
+
+  /* Accessibility: Respect user's motion preferences */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+
+    /* Specifically disable decorative animations */
+    .animate-float,
+    .animate-pulse,
+    .animate-spin,
+    .animate-bounce,
+    [class*="animate-"],
+    [style*="animation"] {
+      animation: none !important;
+    }
+  }
+
+  /* Improved scroll padding for fixed navigation */
+  html {
+    scroll-padding-top: 80px;
   }
 }

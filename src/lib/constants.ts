@@ -54,18 +54,18 @@ export const WEDDING_DATA = {
   },
   photos: [
     {
-      src: "/assets/wedding-photo-1.webp",
-      alt: "Khoa and Sương Wedding Photo 1",
+      src: "/assets/trip-by-the-beach-photo.webp",
+      alt: "Khoa and Sương 's First Journey Together",
       caption: "Our Beautiful Journey Together",
     },
     {
-      src: "/assets/wedding-photo-2.webp",
-      alt: "Khoa and Sương Wedding Photo 2",
+      src: "/assets/lemeridian-party-photo.webp",
+      alt: "Khoa and Sương at Lemeridian Party",
       caption: "Love in Every Moment",
     },
     {
-      src: "/assets/wedding-photo-3.webp",
-      alt: "Khoa and Sương Wedding Photo 3",
+      src: "/assets/mk-steak-party.webp",
+      alt: "Khoa and Sương at Mr.Steak",
       caption: "Forever Starts Here",
     },
     {

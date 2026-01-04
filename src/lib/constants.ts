@@ -1,12 +1,12 @@
 export const WEDDING_DATA = {
   couple: {
     groom: {
-      firstName: "Khoa",
+      firstName: "Đăng Khoa",
       fullName: "Huỳnh Đăng Khoa",
       englishName: "Daniel",
     },
     bride: {
-      firstName: "Sương",
+      firstName: "Hồng Sương",
       fullName: "Lưu Nguyễn Hồng Sương",
       englishName: "Rachel",
     },

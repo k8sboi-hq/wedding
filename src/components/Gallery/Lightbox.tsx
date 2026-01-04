@@ -44,7 +44,7 @@ export default function Lightbox({
           break;
       }
     },
-    [onClose, onNavigate]
+    [onClose, onNavigate],
   );
 
   // Touch gestures for mobile
@@ -208,8 +208,8 @@ export default function Lightbox({
                   currentPhoto.category === "dating"
                     ? "bg-pink-500/80"
                     : currentPhoto.category === "engagement"
-                    ? "bg-purple-500/80"
-                    : "bg-primary/80"
+                      ? "bg-purple-500/80"
+                      : "bg-primary/80"
                 }`}
               >
                 {currentPhoto.category.charAt(0).toUpperCase() +
@@ -217,9 +217,9 @@ export default function Lightbox({
               </span>
             </div>
 
-            <p className="text-white/90 text-base sm:text-lg mb-2">
-              {currentPhoto.story}
-            </p>
+            {/* <p className="text-white/90 text-base sm:text-lg mb-2"> */}
+            {/*   {currentPhoto.story} */}
+            {/* </p> */}
 
             <div className="flex flex-wrap gap-4 text-sm text-white/70">
               <span>{currentPhoto.location}</span>

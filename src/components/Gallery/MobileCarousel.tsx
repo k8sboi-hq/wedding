@@ -145,10 +145,12 @@ export default function MobileCarousel({
 
               {/* Caption Overlay */}
               <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent p-4 sm:p-6">
-                <h3 className="font-serif text-white text-xl sm:text-2xl mb-1">
-                  {photo.caption}
-                </h3>
-                <p className="text-white/90 text-base sm:text-lg">{photo.location}</p>
+                {/* <h3 className="font-serif text-white text-xl sm:text-2xl mb-1"> */}
+                {/*   {photo.caption} */}
+                {/* </h3> */}
+                <p className="text-white/90 text-base sm:text-lg">
+                  {photo.location}
+                </p>
               </div>
             </div>
           ))}

@@ -90,7 +90,7 @@ export default function DesktopCarousel({
           {Array.from({ length: totalSlides }).map((_, slideIndex) => {
             const slidePhotos = photos.slice(
               slideIndex * PHOTOS_PER_SLIDE,
-              (slideIndex + 1) * PHOTOS_PER_SLIDE
+              (slideIndex + 1) * PHOTOS_PER_SLIDE,
             );
 
             return (
@@ -123,14 +123,18 @@ export default function DesktopCarousel({
                           fill
                           sizes="(max-width: 1024px) 25vw, 20vw"
                           className="object-cover transition-all duration-500 group-hover:scale-110"
-                          loading={slideIndex === 0 && photoIndex < 4 ? "eager" : "lazy"}
+                          loading={
+                            slideIndex === 0 && photoIndex < 4
+                              ? "eager"
+                              : "lazy"
+                          }
                         />
 
                         {/* Hover Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
-                          <h3 className="font-serif text-white text-lg lg:text-xl mb-1 line-clamp-1">
-                            {photo.caption}
-                          </h3>
+                          {/* <h3 className="font-serif text-white text-lg lg:text-xl mb-1 line-clamp-1"> */}
+                          {/*   {photo.caption} */}
+                          {/* </h3> */}
                           <p className="text-white/90 text-sm mb-1 line-clamp-1">
                             {photo.location}
                           </p>
@@ -150,8 +154,8 @@ export default function DesktopCarousel({
                               photo.category === "dating"
                                 ? "bg-pink-500/80"
                                 : photo.category === "engagement"
-                                ? "bg-purple-500/80"
-                                : "bg-primary/80"
+                                  ? "bg-purple-500/80"
+                                  : "bg-primary/80"
                             }`}
                           >
                             {photo.category.charAt(0).toUpperCase() +

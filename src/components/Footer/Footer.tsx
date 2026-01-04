@@ -123,7 +123,7 @@ export default function Footer() {
             Made with ❤️ for our special day
           </p>
           <p className="text-xs text-muted-foreground/70 mt-2">
-            © 2025 {couple.groom.firstName} & {couple.bride.firstName}. All
+            © 2026 {couple.groom.firstName} & {couple.bride.firstName}. All
             Rights Reserved
           </p>
         </div>

@@ -6,7 +6,7 @@ import EnvelopeIcon from "./EnvelopeIcon";
 import { SVG_PATTERNS } from "@/lib/svgPatterns";
 
 export default function RSVPSection() {
-  const [guestName, setGuestName] = useState<string>("friend");
+  const [guestName, setGuestName] = useState<string>("Bạn");
   const [party, setParty] = useState<string | null>(null);
   const [showQRCode, setShowQRCode] = useState<boolean>(false);
 
@@ -59,10 +59,10 @@ export default function RSVPSection() {
           <p className="font-serif text-xl md:text-lg text-muted-foreground italic max-w-2xl mx-auto mb-4 leading-relaxed">
             Sự hiện diện của bạn là món quà quý giá nhất với chúng mình
           </p>
-          <p className="font-serif text-base md:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Nếu không thể đến tham dự trực tiếp nhưng vẫn muốn gửi lời chúc
-            phúc, chúng mình sẽ vô cùng cảm động
-          </p>
+          {/* <p className="font-serif text-base md:text-sm text-muted-foreground max-w-2xl mx-auto leading-relaxed"> */}
+          {/*   Nếu không thể đến tham dự trực tiếp nhưng vẫn muốn gửi lời chúc */}
+          {/*   phúc, chúng mình sẽ vô cùng cảm động */}
+          {/* </p> */}
         </div>
 
         <div className="max-w-3xl mx-auto">
@@ -196,29 +196,29 @@ export default function RSVPSection() {
               </div>
 
               {/* Enhanced CTA Button */}
-              <button
-                onClick={() => setShowQRCode(!showQRCode)}
-                className="group relative px-10 py-4 bg-gradient-to-r from-primary via-accent to-primary bg-size-200 bg-pos-0 hover:bg-pos-100 text-white font-serif text-lg md:text-xl font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 flex items-center gap-3"
-                style={{
-                  cursor: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 40 48' style='fill:black;font-size:32px;'><text y='32'>💝</text></svg>") 16 0, pointer`,
-                  backgroundSize: "200% 100%",
-                }}
-              >
-                <span className="text-2xl group-hover:scale-110 transition-transform">
-                  💝
-                </span>
-                <span>{showQRCode ? "Ẩn Mã QR" : "Gửi Lời Chúc Phúc"}</span>
-                <span className="text-2xl group-hover:scale-110 transition-transform">
-                  💝
-                </span>
-              </button>
+              {/* <button */}
+              {/*   onClick={() => setShowQRCode(!showQRCode)} */}
+              {/*   className="group relative px-10 py-4 bg-gradient-to-r from-primary via-accent to-primary bg-size-200 bg-pos-0 hover:bg-pos-100 text-white font-serif text-lg md:text-xl font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 flex items-center gap-3" */}
+              {/*   style={{ */}
+              {/*     cursor: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='48' viewport='0 0 40 48' style='fill:black;font-size:32px;'><text y='32'>💝</text></svg>") 16 0, pointer`, */}
+              {/*     backgroundSize: "200% 100%", */}
+              {/*   }} */}
+              {/* > */}
+              {/*   <span className="text-2xl group-hover:scale-110 transition-transform"> */}
+              {/*     💝 */}
+              {/*   </span> */}
+              {/*   <span>{showQRCode ? "Ẩn Mã QR" : "Gửi Lời Chúc Phúc"}</span> */}
+              {/*   <span className="text-2xl group-hover:scale-110 transition-transform"> */}
+              {/*     💝 */}
+              {/*   </span> */}
+              {/* </button> */}
 
               {/* Subtle note below button */}
-              {!showQRCode && (
-                <p className="text-sm text-muted-foreground italic">
-                  Nhấn để hiển thị mã QR chuyển khoản
-                </p>
-              )}
+              {/* {!showQRCode && ( */}
+              {/*   <p className="text-sm text-muted-foreground italic"> */}
+              {/*     Nhấn để hiển thị mã QR chuyển khoản */}
+              {/*   </p> */}
+              {/* )} */}
             </div>
           </div>
         </div>

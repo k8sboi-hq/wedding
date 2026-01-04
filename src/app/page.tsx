@@ -24,6 +24,7 @@ export default function Home() {
         <HeroSection />
         <Gallery />
         <CountdownSection />
+        <RSVPSection />
         <Suspense
           fallback={
             <>
@@ -34,7 +35,6 @@ export default function Home() {
         >
           <PartyFilteredContent />
         </Suspense>
-        <RSVPSection />
         <Footer />
         <MusicPlayer />
       </main>

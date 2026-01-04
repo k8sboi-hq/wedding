@@ -7,9 +7,9 @@ const navLinks = [
   { href: "#home", label: "Home", icon: "🏠" },
   { href: "#gallery", label: "Photos", icon: "📸" },
   { href: "#countdown", label: "Countdown", icon: "⏰" },
+  { href: "#rsvp", label: "RSVP", icon: "💌" },
   { href: "#details", label: "Details", icon: "📅" },
   { href: "#location", label: "Location", icon: "📍" },
-  { href: "#rsvp", label: "RSVP", icon: "💌" },
 ];
 
 export default function Navigation() {
@@ -23,7 +23,14 @@ export default function Navigation() {
       setIsScrolled(window.scrollY > 100);
 
       // Track active section
-      const sections = ["home", "gallery", "countdown", "details", "location", "rsvp"];
+      const sections = [
+        "home",
+        "gallery",
+        "countdown",
+        "rsvp",
+        "details",
+        "location",
+      ];
 
       for (const section of sections) {
         const element = document.getElementById(section);
@@ -58,10 +65,16 @@ export default function Navigation() {
         {/* Decorative corner lotus - only visible when scrolled */}
         {isScrolled && (
           <>
-            <div className="absolute top-2 left-2 text-accent/20 text-lg animate-[fadeIn_0.5s_ease-out]" aria-hidden="true">
+            <div
+              className="absolute top-2 left-2 text-accent/20 text-lg animate-[fadeIn_0.5s_ease-out]"
+              aria-hidden="true"
+            >
               🪷
             </div>
-            <div className="absolute top-2 right-2 text-accent/20 text-lg animate-[fadeIn_0.5s_ease-out]" aria-hidden="true">
+            <div
+              className="absolute top-2 right-2 text-accent/20 text-lg animate-[fadeIn_0.5s_ease-out]"
+              aria-hidden="true"
+            >
               🪷
             </div>
           </>
@@ -83,7 +96,10 @@ export default function Navigation() {
               K & S
             </span>
             {/* Vietnamese double happiness */}
-            <span className="hidden lg:inline text-accent text-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300" aria-hidden="true">
+            <span
+              className="hidden lg:inline text-accent text-xl opacity-60 group-hover:opacity-100 transition-opacity duration-300"
+              aria-hidden="true"
+            >
               囍
             </span>
           </a>
@@ -95,11 +111,16 @@ export default function Navigation() {
                 key={link.href}
                 href={link.href}
                 className={`relative group font-serif text-base font-medium transition-colors duration-300 ${
-                  activeSection === link.href.slice(1) ? 'text-primary' : 'text-foreground'
+                  activeSection === link.href.slice(1)
+                    ? "text-primary"
+                    : "text-foreground"
                 }`}
               >
                 {/* Decorative flourish on hover - left */}
-                <span className="absolute -left-4 top-1/2 -translate-y-1/2 text-accent opacity-0 group-hover:opacity-100 group-hover:-left-5 transition-all duration-300" aria-hidden="true">
+                <span
+                  className="absolute -left-4 top-1/2 -translate-y-1/2 text-accent opacity-0 group-hover:opacity-100 group-hover:-left-5 transition-all duration-300"
+                  aria-hidden="true"
+                >
                   ❦
                 </span>
 
@@ -111,7 +132,10 @@ export default function Navigation() {
                 </span>
 
                 {/* Decorative flourish on hover - right */}
-                <span className="absolute -right-4 top-1/2 -translate-y-1/2 text-accent opacity-0 group-hover:opacity-100 group-hover:-right-5 transition-all duration-300" aria-hidden="true">
+                <span
+                  className="absolute -right-4 top-1/2 -translate-y-1/2 text-accent opacity-0 group-hover:opacity-100 group-hover:-right-5 transition-all duration-300"
+                  aria-hidden="true"
+                >
                   ❦
                 </span>
               </a>
@@ -162,11 +186,16 @@ export default function Navigation() {
                   href={link.href}
                   onClick={handleLinkClick}
                   className={`flex items-center gap-3 px-4 py-3 rounded-xl font-serif text-base font-medium hover:bg-gradient-to-r hover:from-primary/10 hover:to-accent/10 hover:text-primary hover:shadow-md transition-all duration-300 group ${
-                    activeSection === link.href.slice(1) ? 'text-primary bg-primary/5' : 'text-foreground'
+                    activeSection === link.href.slice(1)
+                      ? "text-primary bg-primary/5"
+                      : "text-foreground"
                   }`}
                   style={{ animationDelay: `${index * 50}ms` }}
                 >
-                  <span className="text-accent text-sm opacity-70 group-hover:opacity-100 transition-opacity" aria-hidden="true">
+                  <span
+                    className="text-accent text-sm opacity-70 group-hover:opacity-100 transition-opacity"
+                    aria-hidden="true"
+                  >
                     {link.icon}
                   </span>
                   {link.label}

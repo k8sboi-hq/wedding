@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import EnvelopeIcon from "./EnvelopeIcon";
+import RSVPForm from "./RSVPForm";
 import { SVG_PATTERNS } from "@/lib/svgPatterns";
 
 interface RSVPSectionProps {
@@ -31,6 +32,11 @@ export default function RSVPSection({
       setParty(partyParam);
     }
   }, [serverGuestName]);
+
+  // Hide RSVP section if no guest name provided
+  if (!serverGuestName) {
+    return null;
+  }
   return (
     <section
       id="rsvp"
@@ -203,12 +209,20 @@ export default function RSVPSection({
                 )}
               </div>
 
-              {/* Decorative divider before button */}
+              {/* Decorative divider before RSVP form */}
               <div className="flex items-center justify-center gap-3 w-full">
                 <div className="h-px w-20 bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
                 <span className="text-accent/60 text-lg">❀</span>
                 <div className="h-px w-20 bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
               </div>
+
+              {/* RSVP Form */}
+              {party && (
+                <RSVPForm
+                  guestName={displayName}
+                  party={party as "1" | "2"}
+                />
+              )}
 
               {/* Enhanced CTA Button */}
               {/* <button */}

@@ -6,31 +6,50 @@ services:
     command: tunnel --no-autoupdate run
     env_file: .env
 
-  wedding-website:
+  wedding-app:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: wedding-website
+    container_name: wedding-app
+    restart: unless-stopped
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_BASE_URL=${NEXT_PUBLIC_BASE_URL:-https://wedding.khoahuynh.dev}
+    expose:
+      - "3000"
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000/', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"]
+      interval: 30s
+      timeout: 3s
+      start-period: 10s
+      retries: 3
+    labels:
+      - "com.wedding.service=app"
+      - "com.wedding.description=Next.js Application"
+
+  caddy:
+    image: caddy:2-alpine
+    container_name: wedding-caddy
     ports:
       - "8080:80"
+      - "443:443"
     volumes:
-      # Mount for live development (optional - comment out for production)
-      - ./out/:/srv/:ro
-      # - ./index.html:/srv/index.html:ro
-      # - ./assets:/srv/assets:ro
-      # Mount for Caddy data persistence (TLS certificates, etc.)
+      - ./Caddyfile.docker:/etc/caddy/Caddyfile:ro
       - caddy_data:/data
       - caddy_config:/config
     restart: unless-stopped
+    depends_on:
+      wedding-app:
+        condition: service_healthy
     healthcheck:
       test: ["CMD", "wget", "--no-verbose", "--tries=1", "--spider", "http://localhost/"]
       interval: 30s
       timeout: 3s
-      start_period: 5s
+      start-period: 5s
       retries: 3
     labels:
-      - "com.wedding.service=web"
-      - "com.wedding.description=Daniel & Sương Wedding Website"
+      - "com.wedding.service=proxy"
+      - "com.wedding.description=Caddy Reverse Proxy"
 
 volumes:
   caddy_data:

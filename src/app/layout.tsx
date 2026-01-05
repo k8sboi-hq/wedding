@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   Playfair_Display,
   Cormorant_Garamond,
@@ -50,60 +49,6 @@ const pinyonScript = Pinyon_Script({
   variable: "--font-pinyon",
   display: "swap",
 });
-
-export const metadata: Metadata = {
-  metadataBase: new URL("https://wedding.khoahuynh.dev"),
-  title: "Khoa & Sương's Wedding - January 20, 2026",
-  description:
-    "Join us for the wedding celebration of Huỳnh Đăng Khoa (Daniel) and Lưu Nguyễn Hồng Sương (Rachel) on January 20, 2026. Guest celebrations on January 18 & 25. RSVP today!",
-  keywords: [
-    "wedding",
-    "Khoa",
-    "Sương",
-    "Daniel",
-    "Rachel",
-    "Francis Hội",
-    "Garden Plaza Saigon",
-    "January 20 2026",
-  ],
-  authors: [{ name: "Huỳnh Đăng Khoa & Lưu Nguyễn Hồng Sương" }],
-  openGraph: {
-    type: "website",
-    url: "https://wedding.khoahuynh.dev",
-    title: "Khoa & Sương's Wedding - January 20, 2026",
-    description:
-      "Join us for the wedding celebration of Huỳnh Đăng Khoa (Daniel) and Lưu Nguyễn Hồng Sương (Rachel) on January 20, 2026. Guest celebrations on January 18 & 25. RSVP today!",
-    images: [
-      {
-        url: "/assets/og-image-0355.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Khoa & Sương Wedding Photo",
-        type: "image/jpeg",
-      },
-      {
-        url: "/assets/og-image-0355.webp",
-        width: 1200,
-        height: 630,
-        alt: "Khoa & Sương Wedding Photo",
-        type: "image/webp",
-      },
-    ],
-    locale: "en_US",
-    siteName: "Khoa & Sương's Wedding",
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Khoa & Sương's Wedding - January 20, 2026",
-    description:
-      "Join us for the wedding celebration of Huỳnh Đăng Khoa (Daniel) and Lưu Nguyễn Hồng Sương (Rachel) on January 20, 2026. Guest celebrations on January 18 & 25. RSVP today!",
-    images: ["/assets/og-image.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
 
 export default function RootLayout({
   children,

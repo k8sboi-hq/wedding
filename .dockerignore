@@ -1,16 +1,38 @@
-# Git files
+# Dependencies
+node_modules
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Next.js build output
+.next
+out
+
+# Git
 .git
 .gitignore
 .gitattributes
 
-# Documentation
-README.md
-QUICK-START.md
-CLAUDE.md
+# Environment files
+.env
+.env.*
+!.env.example
 
-# Development files
-progress.json
-.claude/
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Documentation
+*.md
+!CLAUDE.md
+!README.md
 
 # Docker files (we don't need these inside the container)
 Dockerfile
@@ -20,16 +42,17 @@ docker-compose.yml
 # Production Caddyfile (we use Caddyfile.docker instead)
 Caddyfile
 
+# Development files
+progress.json
+.claude/
+learning.md
+
 # Logs
 *.log
 
-# OS files
-.DS_Store
-Thumbs.db
+# Misc
+*.pem
 
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
+# Old files
+index.deprecated.html
+lemeridian-party-photo.jpg

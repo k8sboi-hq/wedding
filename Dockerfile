@@ -1,23 +1,74 @@
-# Dockerfile for Wedding Website with Caddy
-# Multi-stage build for optimized image size
+# Dockerfile for Next.js Wedding Website with Node.js runtime
+# Multi-stage build for optimized production image
 
-FROM caddy:2-alpine
+# =====================
+# Stage 1: Dependencies
+# =====================
+FROM node:20-alpine AS deps
+WORKDIR /app
 
-# Set working directory
-WORKDIR /srv
+# Install dependencies based on package manager
+COPY package.json package-lock.json* ./
+RUN npm ci --only=production
 
-# Copy website files
-COPY index.html /srv/
-COPY assets/ /srv/assets/
+# =====================
+# Stage 2: Builder
+# =====================
+FROM node:20-alpine AS builder
+WORKDIR /app
 
-# Copy Caddyfile for Docker environment
-COPY Caddyfile.docker /etc/caddy/Caddyfile
+# Copy dependencies from deps stage
+COPY --from=deps /app/node_modules ./node_modules
+COPY package.json package-lock.json* ./
 
-# Expose port 80 and 443
-EXPOSE 80 443
+# Install all dependencies (including devDependencies for build)
+RUN npm ci
+
+# Copy source code
+COPY . .
+
+# Set build-time environment variables
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV NODE_ENV=production
+
+# Build Next.js application
+# This will create .next directory and standalone output
+RUN npm run build
+
+# =====================
+# Stage 3: Runner
+# =====================
+FROM node:20-alpine AS runner
+WORKDIR /app
+
+# Set runtime environment
+ENV NODE_ENV=production
+ENV NEXT_TELEMETRY_DISABLED=1
+ENV PORT=3000
+ENV HOSTNAME="0.0.0.0"
+
+# Create non-root user for security
+RUN addgroup --system --gid 1001 nodejs && \
+    adduser --system --uid 1001 nextjs
+
+# Copy necessary files from builder
+# Standalone output includes minimal node_modules
+COPY --from=builder /app/public ./public
+COPY --from=builder /app/.next/standalone ./
+COPY --from=builder /app/.next/static ./.next/static
+
+# Set ownership to nextjs user
+RUN chown -R nextjs:nodejs /app
+
+# Switch to non-root user
+USER nextjs
+
+# Expose port 3000
+EXPOSE 3000
 
 # Health check
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-    CMD wget --no-verbose --tries=1 --spider http://localhost/ || exit 1
+HEALTHCHECK --interval=30s --timeout=3s --start-period=10s --retries=3 \
+    CMD node -e "require('http').get('http://localhost:3000/', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})"
 
-# Caddy will run automatically as the default command
+# Start Next.js server
+CMD ["node", "server.js"]

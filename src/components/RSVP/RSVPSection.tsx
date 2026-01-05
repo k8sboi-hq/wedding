@@ -5,24 +5,32 @@ import Image from "next/image";
 import EnvelopeIcon from "./EnvelopeIcon";
 import { SVG_PATTERNS } from "@/lib/svgPatterns";
 
-export default function RSVPSection() {
-  const [guestName, setGuestName] = useState<string>("Bạn");
+interface RSVPSectionProps {
+  guestName?: string | null;
+}
+
+export default function RSVPSection({
+  guestName: serverGuestName,
+}: RSVPSectionProps) {
+  const [displayName, setDisplayName] = useState<string>(
+    serverGuestName || "Bạn",
+  );
   const [party, setParty] = useState<string | null>(null);
   const [showQRCode, setShowQRCode] = useState<boolean>(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const guest = params.get("guest");
     const partyParam = params.get("party");
 
-    if (guest) {
-      setGuestName(decodeURIComponent(guest));
+    // Update display name if server provided one
+    if (serverGuestName) {
+      setDisplayName(serverGuestName);
     }
 
     if (partyParam) {
       setParty(partyParam);
     }
-  }, []);
+  }, [serverGuestName]);
   return (
     <section
       id="rsvp"
@@ -42,6 +50,13 @@ export default function RSVPSection() {
               <EnvelopeIcon className="relative w-28 h-28 mx-auto animate-[fadeIn_1.5s_ease-out]" />
             </div>
           </div>
+
+          {/* Personalized greeting if guest name is provided */}
+          {/* {serverGuestName && ( */}
+          {/*   <p className="font-serif text-2xl md:text-xl text-primary mb-4 animate-[fadeIn_1s_ease-out]"> */}
+          {/*     Kính gửi <span className="font-semibold">{displayName}</span> 💐 */}
+          {/*   </p> */}
+          {/* )} */}
 
           {/* Title */}
           <h2 className="font-pinyon text-5xl md:text-4xl sm:text-3xl font-bold text-primary mb-3">
@@ -157,7 +172,7 @@ export default function RSVPSection() {
                           className="font-dancing text-xl md:text-4xl font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]"
                           style={{ color: "#b82428" }}
                         >
-                          {guestName}
+                          {displayName}
                         </p>
                       </div>
                     </div>
@@ -180,7 +195,7 @@ export default function RSVPSection() {
                       />
                       <div className="absolute top-[30%] md:top-[31%] left-0 right-0 text-center">
                         <p className="font-dancing text-xl md:text-4xl text-white font-bold drop-shadow-[0_2px_8px_rgba(0,0,0,0.5)]">
-                          {guestName}
+                          {displayName}
                         </p>
                       </div>
                     </div>

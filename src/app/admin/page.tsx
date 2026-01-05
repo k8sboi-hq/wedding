@@ -45,7 +45,7 @@ export default function AdminPage() {
     e.preventDefault();
     // Simple client-side password check
     // Change this password to something secure!
-    if (password === "wedding2026") {
+    if (password === "wedding-2026-chu-b@o") {
       setIsAuthenticated(true);
       setPassword("");
     } else {
@@ -58,7 +58,8 @@ export default function AdminPage() {
     if (!guestName.trim()) return;
 
     const encoded = encodeGuestName(guestName);
-    const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://wedding.khoahuynh.dev";
+    const baseUrl =
+      process.env.NEXT_PUBLIC_BASE_URL || "https://wedding.khoahuynh.dev";
     const link = `${baseUrl}/?party=${selectedParty}&guest=${encoded}`;
 
     const newGuest: Guest = {
@@ -81,12 +82,12 @@ export default function AdminPage() {
   };
 
   const handleToggleSent = (id: string) => {
-    setGuests(guests.map(g => g.id === id ? { ...g, sent: !g.sent } : g));
+    setGuests(guests.map((g) => (g.id === id ? { ...g, sent: !g.sent } : g)));
   };
 
   const handleDeleteGuest = (id: string) => {
     if (confirm("Are you sure you want to delete this guest?")) {
-      setGuests(guests.filter(g => g.id !== id));
+      setGuests(guests.filter((g) => g.id !== id));
     }
   };
 
@@ -96,7 +97,7 @@ export default function AdminPage() {
     const url = URL.createObjectURL(dataBlob);
     const link = document.createElement("a");
     link.href = url;
-    link.download = `wedding-guests-${new Date().toISOString().split('T')[0]}.json`;
+    link.download = `wedding-guests-${new Date().toISOString().split("T")[0]}.json`;
     link.click();
   };
 
@@ -121,10 +122,10 @@ export default function AdminPage() {
 
   const stats = {
     total: guests.length,
-    sent: guests.filter(g => g.sent).length,
-    pending: guests.filter(g => !g.sent).length,
-    party1: guests.filter(g => g.party === "1").length,
-    party2: guests.filter(g => g.party === "2").length,
+    sent: guests.filter((g) => g.sent).length,
+    pending: guests.filter((g) => !g.sent).length,
+    party1: guests.filter((g) => g.party === "1").length,
+    party2: guests.filter((g) => g.party === "2").length,
   };
 
   if (!isAuthenticated) {
@@ -170,7 +171,9 @@ export default function AdminPage() {
               <h1 className="font-serif text-3xl font-bold text-primary mb-2">
                 Wedding Guest Manager
               </h1>
-              <p className="text-gray-600">Generate and track personalized invitation links</p>
+              <p className="text-gray-600">
+                Generate and track personalized invitation links
+              </p>
             </div>
             <button
               onClick={() => setIsAuthenticated(false)}
@@ -188,19 +191,27 @@ export default function AdminPage() {
             <div className="text-sm text-gray-600">Total Guests</div>
           </div>
           <div className="bg-white rounded-xl shadow p-4 text-center">
-            <div className="text-2xl font-bold text-green-600">{stats.sent}</div>
+            <div className="text-2xl font-bold text-green-600">
+              {stats.sent}
+            </div>
             <div className="text-sm text-gray-600">Sent</div>
           </div>
           <div className="bg-white rounded-xl shadow p-4 text-center">
-            <div className="text-2xl font-bold text-orange-600">{stats.pending}</div>
+            <div className="text-2xl font-bold text-orange-600">
+              {stats.pending}
+            </div>
             <div className="text-sm text-gray-600">Pending</div>
           </div>
           <div className="bg-white rounded-xl shadow p-4 text-center">
-            <div className="text-2xl font-bold text-blue-600">{stats.party1}</div>
+            <div className="text-2xl font-bold text-blue-600">
+              {stats.party1}
+            </div>
             <div className="text-sm text-gray-600">Party 1</div>
           </div>
           <div className="bg-white rounded-xl shadow p-4 text-center">
-            <div className="text-2xl font-bold text-purple-600">{stats.party2}</div>
+            <div className="text-2xl font-bold text-purple-600">
+              {stats.party2}
+            </div>
             <div className="text-sm text-gray-600">Party 2</div>
           </div>
         </div>
@@ -232,7 +243,9 @@ export default function AdminPage() {
                   </label>
                   <select
                     value={selectedParty}
-                    onChange={(e) => setSelectedParty(e.target.value as "1" | "2")}
+                    onChange={(e) =>
+                      setSelectedParty(e.target.value as "1" | "2")
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-primary"
                   >
                     <option value="1">Party 1 - Tiệc Nhà Gái (Jan 18)</option>
@@ -279,7 +292,9 @@ export default function AdminPage() {
               {guests.length === 0 ? (
                 <div className="text-center py-12 text-gray-500">
                   <p className="mb-2">No guests added yet</p>
-                  <p className="text-sm">Add your first guest using the form →</p>
+                  <p className="text-sm">
+                    Add your first guest using the form →
+                  </p>
                 </div>
               ) : (
                 <div className="space-y-3 max-h-[calc(100vh-300px)] overflow-y-auto">
@@ -287,18 +302,25 @@ export default function AdminPage() {
                     <div
                       key={guest.id}
                       className={`border rounded-lg p-4 transition-all ${
-                        guest.sent ? "bg-green-50 border-green-200" : "bg-white border-gray-200"
+                        guest.sent
+                          ? "bg-green-50 border-green-200"
+                          : "bg-white border-gray-200"
                       }`}
                     >
                       <div className="flex items-start justify-between mb-2">
                         <div className="flex-1">
-                          <h3 className="font-semibold text-gray-900">{guest.name}</h3>
-                          <span className={`text-xs px-2 py-1 rounded ${
-                            guest.party === "1"
-                              ? "bg-blue-100 text-blue-700"
-                              : "bg-purple-100 text-purple-700"
-                          }`}>
-                            Party {guest.party} - {guest.party === "1" ? "Nhà Gái" : "Nhà Trai"}
+                          <h3 className="font-semibold text-gray-900">
+                            {guest.name}
+                          </h3>
+                          <span
+                            className={`text-xs px-2 py-1 rounded ${
+                              guest.party === "1"
+                                ? "bg-blue-100 text-blue-700"
+                                : "bg-purple-100 text-purple-700"
+                            }`}
+                          >
+                            Party {guest.party} -{" "}
+                            {guest.party === "1" ? "Nhà Gái" : "Nhà Trai"}
                           </span>
                         </div>
                         <button

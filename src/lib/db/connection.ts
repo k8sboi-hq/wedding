@@ -3,7 +3,7 @@
  * Provides a singleton connection pool for the application
  */
 
-import { Pool, PoolClient, QueryResult } from 'pg';
+import { Pool, PoolClient, QueryResult, QueryResultRow } from 'pg';
 
 // Global pool instance
 let pool: Pool | null = null;
@@ -45,7 +45,7 @@ export function getPool(): Pool {
  * @param params Query parameters
  * @returns Query result
  */
-export async function query<T = any>(
+export async function query<T extends QueryResultRow = any>(
   text: string,
   params?: any[]
 ): Promise<QueryResult<T>> {

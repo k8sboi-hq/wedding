@@ -57,6 +57,12 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
+# Copy scripts, database, and package.json for admin tools
+COPY --from=builder /app/scripts ./scripts
+COPY --from=builder /app/database ./database
+COPY --from=builder /app/package.json ./package.json
+COPY --from=builder /app/node_modules ./node_modules
+
 # Set ownership to nextjs user
 RUN chown -R nextjs:nodejs /app
 

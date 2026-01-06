@@ -25,13 +25,19 @@ export async function isAuthenticated(request: NextRequest): Promise<boolean> {
 /**
  * Require authentication for a route
  * Returns 401 Unauthorized if not authenticated
- * @param handler Route handler function
+ * @param handler Route handler function (with or without params)
  * @returns Wrapped handler with auth check
  */
-export function requireAuth(
-  handler: (request: NextRequest) => Promise<NextResponse> | NextResponse
+export function requireAuth<T = any>(
+  handler: (
+    request: NextRequest,
+    context?: T
+  ) => Promise<NextResponse> | NextResponse
 ) {
-  return async (request: NextRequest): Promise<NextResponse> => {
+  return async (
+    request: NextRequest,
+    context?: T
+  ): Promise<NextResponse> => {
     const authenticated = await isAuthenticated(request);
 
     if (!authenticated) {
@@ -41,6 +47,6 @@ export function requireAuth(
       );
     }
 
-    return handler(request);
+    return handler(request, context);
   };
 }

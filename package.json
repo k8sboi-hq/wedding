@@ -7,9 +7,10 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "rsync": "rsync -avz --progress --exclude 'node_modules' --exclude '.next' --exclude '.git' --exclude 'dist' --exclude 'build' ~/working/wedding-website/ docker-prod:/home/deployer/deployment/",
+    "rsync": "rsync -avz --progress --exclude 'node_modules' --exclude '.next' --exclude '.git' --exclude 'dist' --exclude 'build' ~/working/wedding-website/ docker-prod:/home/deployer/upgrade-deployment/",
     "create-admin": "tsx scripts/create-admin.ts",
-    "db:init": "tsx scripts/init-db.ts"
+    "db:init": "tsx scripts/init-db.ts",
+    "pre-migration-check": "bash scripts/pre-migration-check.sh"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",

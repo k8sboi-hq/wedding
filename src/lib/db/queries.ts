@@ -42,6 +42,23 @@ export interface RSVPStats {
   party2: number;
 }
 
+export interface AuthorizedGuest {
+  id: number;
+  guest_name: string;
+  party: '1' | '2';
+  created_at: Date;
+}
+
+export interface GuestLink {
+  id: number;
+  guest_name: string;
+  party: '1' | '2';
+  link: string;
+  sent: boolean;
+  created_at: Date;
+  updated_at: Date;
+}
+
 // ============================================
 // RSVP Queries
 // ============================================
@@ -246,4 +263,169 @@ export async function deleteSession(sessionToken: string): Promise<boolean> {
 export async function cleanupExpiredSessions(): Promise<number> {
   const result = await query('SELECT cleanup_expired_sessions()');
   return result.rows[0].cleanup_expired_sessions;
+}
+
+// ============================================
+// Authorized Guests Queries
+// ============================================
+
+/**
+ * Add or update an authorized guest (upsert)
+ */
+export async function authorizeGuest(
+  guestName: string,
+  party: '1' | '2'
+): Promise<AuthorizedGuest> {
+  const result = await query<AuthorizedGuest>(
+    `INSERT INTO authorized_guests (guest_name, party)
+     VALUES ($1, $2)
+     ON CONFLICT (guest_name, party)
+     DO UPDATE SET
+       created_at = authorized_guests.created_at
+     RETURNING *`,
+    [guestName, party]
+  );
+
+  return result.rows[0];
+}
+
+/**
+ * Check if a guest is authorized for RSVP
+ */
+export async function isGuestAuthorized(
+  guestName: string,
+  party: '1' | '2'
+): Promise<boolean> {
+  const result = await query<AuthorizedGuest>(
+    'SELECT * FROM authorized_guests WHERE guest_name = $1 AND party = $2',
+    [guestName, party]
+  );
+
+  return result.rows.length > 0;
+}
+
+/**
+ * Get all authorized guests
+ */
+export async function getAllAuthorizedGuests(): Promise<AuthorizedGuest[]> {
+  const result = await query<AuthorizedGuest>(
+    'SELECT * FROM authorized_guests ORDER BY created_at DESC'
+  );
+
+  return result.rows;
+}
+
+/**
+ * Delete an authorized guest
+ */
+export async function deleteAuthorizedGuest(
+  guestName: string,
+  party: '1' | '2'
+): Promise<boolean> {
+  const result = await query(
+    'DELETE FROM authorized_guests WHERE guest_name = $1 AND party = $2',
+    [guestName, party]
+  );
+
+  return (result.rowCount ?? 0) > 0;
+}
+
+// ============================================
+// Guest Links Queries
+// ============================================
+
+/**
+ * Create or update a guest link (upsert)
+ */
+export async function upsertGuestLink(
+  guestName: string,
+  party: '1' | '2',
+  link: string,
+  sent: boolean = false
+): Promise<GuestLink> {
+  const result = await query<GuestLink>(
+    `INSERT INTO guest_links (guest_name, party, link, sent)
+     VALUES ($1, $2, $3, $4)
+     ON CONFLICT (guest_name, party)
+     DO UPDATE SET
+       link = EXCLUDED.link,
+       updated_at = NOW()
+     RETURNING *`,
+    [guestName, party, link, sent]
+  );
+
+  return result.rows[0];
+}
+
+/**
+ * Get all guest links
+ */
+export async function getAllGuestLinks(): Promise<GuestLink[]> {
+  const result = await query<GuestLink>(
+    'SELECT * FROM guest_links ORDER BY created_at DESC'
+  );
+
+  return result.rows;
+}
+
+/**
+ * Update guest link sent status
+ */
+export async function updateGuestLinkSent(
+  id: number,
+  sent: boolean
+): Promise<GuestLink | null> {
+  const result = await query<GuestLink>(
+    `UPDATE guest_links
+     SET sent = $1, updated_at = NOW()
+     WHERE id = $2
+     RETURNING *`,
+    [sent, id]
+  );
+
+  return result.rows[0] || null;
+}
+
+/**
+ * Delete a guest link
+ */
+export async function deleteGuestLink(id: number): Promise<boolean> {
+  const result = await query('DELETE FROM guest_links WHERE id = $1', [id]);
+  return (result.rowCount ?? 0) > 0;
+}
+
+/**
+ * Get guest link statistics
+ */
+export async function getGuestLinkStats(): Promise<{
+  total: number;
+  sent: number;
+  pending: number;
+  party1: number;
+  party2: number;
+}> {
+  const result = await query<{
+    total: string;
+    sent: string;
+    pending: string;
+    party1: string;
+    party2: string;
+  }>(`
+    SELECT
+      COUNT(*) as total,
+      COUNT(*) FILTER (WHERE sent = TRUE) as sent,
+      COUNT(*) FILTER (WHERE sent = FALSE) as pending,
+      COUNT(*) FILTER (WHERE party = '1') as party1,
+      COUNT(*) FILTER (WHERE party = '2') as party2
+    FROM guest_links
+  `);
+
+  const row = result.rows[0];
+  return {
+    total: parseInt(row.total),
+    sent: parseInt(row.sent),
+    pending: parseInt(row.pending),
+    party1: parseInt(row.party1),
+    party2: parseInt(row.party2),
+  };
 }

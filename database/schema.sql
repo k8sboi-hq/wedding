@@ -25,6 +25,45 @@ CREATE INDEX IF NOT EXISTS idx_rsvps_created_at ON rsvps(created_at DESC);
 CREATE INDEX IF NOT EXISTS idx_rsvps_party_status ON rsvps(party, status);
 
 -- ============================================
+-- Authorized Guests Table
+-- ============================================
+CREATE TABLE IF NOT EXISTS authorized_guests (
+  id SERIAL PRIMARY KEY,
+  guest_name VARCHAR(255) NOT NULL,
+  party VARCHAR(1) NOT NULL CHECK (party IN ('1', '2')),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+
+  -- Composite unique constraint: one authorization per guest per party
+  CONSTRAINT unique_authorized_guest_party UNIQUE (guest_name, party)
+);
+
+-- Indexes for efficient queries
+CREATE INDEX IF NOT EXISTS idx_authorized_guests_party ON authorized_guests(party);
+CREATE INDEX IF NOT EXISTS idx_authorized_guests_guest_name ON authorized_guests(guest_name);
+CREATE INDEX IF NOT EXISTS idx_authorized_guests_name_party ON authorized_guests(guest_name, party);
+
+-- ============================================
+-- Guest Links Table
+-- ============================================
+CREATE TABLE IF NOT EXISTS guest_links (
+  id SERIAL PRIMARY KEY,
+  guest_name VARCHAR(255) NOT NULL,
+  party VARCHAR(1) NOT NULL CHECK (party IN ('1', '2')),
+  link TEXT NOT NULL,
+  sent BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT NOW(),
+
+  -- Composite unique constraint: one link per guest per party
+  CONSTRAINT unique_guest_link_party UNIQUE (guest_name, party)
+);
+
+-- Indexes for efficient queries
+CREATE INDEX IF NOT EXISTS idx_guest_links_party ON guest_links(party);
+CREATE INDEX IF NOT EXISTS idx_guest_links_sent ON guest_links(sent);
+CREATE INDEX IF NOT EXISTS idx_guest_links_created_at ON guest_links(created_at DESC);
+
+-- ============================================
 -- Admin Sessions Table
 -- ============================================
 CREATE TABLE IF NOT EXISTS admin_sessions (

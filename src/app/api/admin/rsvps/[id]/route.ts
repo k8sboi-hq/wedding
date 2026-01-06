@@ -10,10 +10,17 @@ import { requireAuth } from '@/lib/auth/middleware';
 
 async function handleDELETE(
   request: NextRequest,
-  { params }: { params: Promise<{ id: string }> }
+  context?: { params: Promise<{ id: string }> }
 ) {
   try {
-    const { id } = await params;
+    if (!context?.params) {
+      return NextResponse.json(
+        { success: false, error: 'Missing route parameters' },
+        { status: 400 }
+      );
+    }
+
+    const { id } = await context.params;
     const rsvpId = parseInt(id, 10);
 
     if (isNaN(rsvpId)) {
@@ -46,4 +53,6 @@ async function handleDELETE(
 }
 
 // Wrap handler with authentication
-export const DELETE = requireAuth(handleDELETE);
+export const DELETE = requireAuth<{ params: Promise<{ id: string }> }>(
+  handleDELETE
+);

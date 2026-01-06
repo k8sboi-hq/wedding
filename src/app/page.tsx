@@ -23,13 +23,16 @@ export async function generateMetadata({
   const params = await searchParams;
   const partyFilter = parsePartyParam(params.party);
   const guestName = decodeGuestName(params.guest);
-  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || "https://wedding.khoahuynh.dev";
+  const baseUrl =
+    process.env.NEXT_PUBLIC_BASE_URL || "https://wedding.khoahuynh.dev";
 
   // Build URL with query params
   const urlParams = new URLSearchParams();
-  if (partyFilter) urlParams.set('party', partyFilter);
-  if (params.guest) urlParams.set('guest', params.guest);
-  const url = urlParams.toString() ? `${baseUrl}?${urlParams.toString()}` : baseUrl;
+  if (partyFilter) urlParams.set("party", partyFilter);
+  if (params.guest) urlParams.set("guest", params.guest);
+  const url = urlParams.toString()
+    ? `${baseUrl}?${urlParams.toString()}`
+    : baseUrl;
 
   let title = "Khoa & Sương's Wedding - January 20, 2026";
   let description =
@@ -49,11 +52,11 @@ export async function generateMetadata({
   // Further personalize with guest name if provided
   if (guestName) {
     if (partyFilter === "1") {
-      title = `Personal Invitation for ${guestName} - Tiệc Nhà Gái - January 18, 2026`;
-      description = `Dear ${guestName}, you are personally invited to Bride's Family Party (Tiệc Nhà Gái) on January 18, 2026 at Francis Hội Restaurant, Lái Thiêu. Join us to celebrate Huỳnh Đăng Khoa and Lưu Nguyễn Hồng Sương's wedding!`;
+      title = `Personal Invitation for ${guestName} - to celebrate the wedding of Hồng Sương and Đăng Khoa - January 18, 2026`;
+      description = `Dear ${guestName}, you are personally invited to celebrate the wedding of Hồng Sương (Rachel) and Đăng Khoa (Daniel) on January 18, 2026 at Francis Hội Restaurant, Lái Thiêu. Join us to celebrate Huỳnh Đăng Khoa and Lưu Nguyễn Hồng Sương's wedding!`;
     } else if (partyFilter === "2") {
-      title = `Personal Invitation for ${guestName} - Tiệc Nhà Trai - January 25, 2026`;
-      description = `Dear ${guestName}, you are personally invited to Groom's Family Party (Tiệc Nhà Trai) on January 25, 2026 at Garden Plaza Saigon. Join us to celebrate Huỳnh Đăng Khoa and Lưu Nguyễn Hồng Sương's wedding!`;
+      title = `Personal Invitation for ${guestName} - to celebrate the wedding of Đăng Khoa and Hồng Sương - January 25, 2026`;
+      description = `Dear ${guestName}, you are personally invited to celebrate the wedding of Đăng Khoa (Daniel) and Hồng Sương (Rachel) on January 25, 2026 at Garden Plaza Saigon. Join us to celebrate Huỳnh Đăng Khoa and Lưu Nguyễn Hồng Sương's wedding!`;
     } else {
       title = `Personal Invitation for ${guestName} - Khoa & Sương's Wedding`;
       description = `Dear ${guestName}, you are personally invited to celebrate the wedding of Huỳnh Đăng Khoa (Daniel) and Lưu Nguyễn Hồng Sương (Rachel) on January 20, 2026. Guest celebrations on January 18 & 25. RSVP today!`;

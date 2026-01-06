@@ -10,7 +10,7 @@ import FloatingEmojis from "../Hero/FloatingEmojis";
 
 export default function Gallery() {
   const [selectedPhotoIndex, setSelectedPhotoIndex] = useState<number | null>(
-    null
+    null,
   );
   const [isLightboxOpen, setIsLightboxOpen] = useState(false);
 
@@ -30,11 +30,11 @@ export default function Gallery() {
     const totalPhotos = WEDDING_DATA.photos.length;
     if (direction === "prev") {
       setSelectedPhotoIndex(
-        selectedPhotoIndex === 0 ? totalPhotos - 1 : selectedPhotoIndex - 1
+        selectedPhotoIndex === 0 ? totalPhotos - 1 : selectedPhotoIndex - 1,
       );
     } else {
       setSelectedPhotoIndex(
-        selectedPhotoIndex === totalPhotos - 1 ? 0 : selectedPhotoIndex + 1
+        selectedPhotoIndex === totalPhotos - 1 ? 0 : selectedPhotoIndex + 1,
       );
     }
   };
@@ -49,7 +49,6 @@ export default function Gallery() {
         backgroundPosition: "center",
       }}
     >
-
       {/* Floating Decorative Elements */}
       <FloatingEmojis />
 
@@ -57,12 +56,11 @@ export default function Gallery() {
       <div className="container mx-auto px-4 relative z-10 mb-12">
         <div className="text-center">
           <h2 className="font-serif text-4xl sm:text-5xl text-primary mb-4">
-            Our Journey Together
+            Hành Trình Của Tụi Mình
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-transparent via-accent to-transparent mx-auto mb-4" />
           <p className="text-text-light text-lg max-w-2xl mx-auto">
-            Every moment captured, every memory cherished. A visual story of our
-            love from the first date to forever.
+            Mọi khoảnh khắc được lưu giữ, mọi kỷ niệm được trân quý.
           </p>
         </div>
       </div>

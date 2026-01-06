@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import EnvelopeIcon from "./EnvelopeIcon";
+import RSVPForm from "./RSVPForm";
 import { SVG_PATTERNS } from "@/lib/svgPatterns";
 
 interface RSVPSectionProps {
@@ -17,10 +18,13 @@ export default function RSVPSection({
   );
   const [party, setParty] = useState<string | null>(null);
   const [showQRCode, setShowQRCode] = useState<boolean>(false);
+  const [isAuthorized, setIsAuthorized] = useState<boolean | null>(null);
+  const [isCheckingAuth, setIsCheckingAuth] = useState<boolean>(true);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const partyParam = params.get("party");
+    const guestParam = params.get("guest");
 
     // Update display name if server provided one
     if (serverGuestName) {
@@ -30,7 +34,41 @@ export default function RSVPSection({
     if (partyParam) {
       setParty(partyParam);
     }
+
+    // Check if guest is authorized for RSVP
+    async function checkAuthorization() {
+      if (!guestParam || !partyParam) {
+        setIsAuthorized(false);
+        setIsCheckingAuth(false);
+        return;
+      }
+
+      try {
+        const response = await fetch(
+          `/api/guest/check-authorization?guest=${guestParam}&party=${partyParam}`,
+        );
+        const data = await response.json();
+
+        if (data.success) {
+          setIsAuthorized(data.authorized);
+        } else {
+          setIsAuthorized(false);
+        }
+      } catch (error) {
+        console.error("Failed to check authorization:", error);
+        setIsAuthorized(false);
+      } finally {
+        setIsCheckingAuth(false);
+      }
+    }
+
+    checkAuthorization();
   }, [serverGuestName]);
+
+  // Hide RSVP section if no guest name provided
+  if (!serverGuestName) {
+    return null;
+  }
   return (
     <section
       id="rsvp"
@@ -203,12 +241,36 @@ export default function RSVPSection({
                 )}
               </div>
 
-              {/* Decorative divider before button */}
+              {/* Decorative divider before RSVP form */}
               <div className="flex items-center justify-center gap-3 w-full">
                 <div className="h-px w-20 bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
                 <span className="text-accent/60 text-lg">❀</span>
                 <div className="h-px w-20 bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
               </div>
+
+              {/* RSVP Form - Only show if authorized */}
+              {isCheckingAuth ? (
+                <div className="text-center py-8">
+                  <div className="inline-block animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div>
+                  <p className="mt-4 text-muted-foreground font-serif">
+                    Đang kiểm tra...
+                  </p>
+                </div>
+              ) : isAuthorized && party ? (
+                <RSVPForm
+                  guestName={displayName}
+                  party={party as "1" | "2"}
+                />
+              ) : (
+                <div className="text-center py-8 max-w-md mx-auto">
+                  <p className="font-serif text-lg text-muted-foreground leading-relaxed">
+                    Cảm ơn bạn đã ghé thăm! 💐
+                  </p>
+                  <p className="font-serif text-base text-muted-foreground/80 mt-4 leading-relaxed">
+                    Chúng mình rất vui được chia sẻ ngày trọng đại này với bạn.
+                  </p>
+                </div>
+              )}
 
               {/* Enhanced CTA Button */}
               {/* <button */}
